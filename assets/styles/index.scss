@@ -4,13 +4,16 @@
   margin-top: 65px;
 }
 
-div {
-  border: 1px solid #000;
-}
-
 .sidebar {
+  border: 1px solid #000;
   bottom: 0;
+  padding: 10px 5px;
   position: sticky;
   right: 0;
+  text-align: center;
   top: 65px;
+
+  & h2 {
+    border-bottom: 1px solid #000;
+  }
 }
