@@ -6,7 +6,7 @@ const store = require('../store.js')
 const signUp = function (data) {
   return $.ajax({
     url: config.apiUrl + '/sign-up',
-    method: POST,
+    method: 'POST',
     data: data
   })
 }
@@ -14,7 +14,7 @@ const signUp = function (data) {
 const signIn = function (data) {
   return $.ajax({
     url: config.apiUrl + '/sign-in',
-    method: POST,
+    method: 'POST',
     data: data
   })
 }
@@ -22,7 +22,7 @@ const signIn = function (data) {
 const changePw = function (data) {
   return $.ajax({
     url: config.apiUrl + '/change-password',
-    method: PATCH,
+    method: 'PATCH',
     header: {
       Authorization: 'Token token=' + store.user.token
     },
@@ -33,7 +33,7 @@ const changePw = function (data) {
 const signOut = function () {
   return $.ajax({
     url: config.apiUrl + '/sign-out',
-    method: DESTROY,
+    method: 'DELETE',
     header: {
       Authorization: 'Token token=' + store.user.token
     }
