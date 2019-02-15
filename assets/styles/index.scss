@@ -1,1 +1,16 @@
 @import '~bootstrap/scss/bootstrap';
+
+.container {
+  margin-top: 65px;
+}
+
+div {
+  border: 1px solid #000;
+}
+
+.sidebar {
+  bottom: 0;
+  position: sticky;
+  right: 0;
+  top: 65px;
+}
