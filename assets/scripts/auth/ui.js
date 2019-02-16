@@ -2,7 +2,6 @@ const store = require('../store')
 
 const onSignUpSuccess = () => {
   $('#auth-message').html('You have successfully signed up')
-  $('#sign-up').fadeOut(500)
 }
 
 const onSignUpFailure = () => {
