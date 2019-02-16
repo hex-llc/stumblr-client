@@ -2,6 +2,7 @@ const store = require('../store')
 
 const onSignUpSuccess = () => {
   $('#auth-message').html('You have successfully signed up')
+
 }
 
 const onSignUpFailure = () => {
