@@ -18,7 +18,28 @@
   }
 }
 
+form{
+  display: flex;
+  flex-direction: column;
+
+  h4 {
+    align-self: flex-start;
+    font-size: 18px;
+  }
+
+  input {
+    border: 0;
+    border-bottom: 1px solid grey;
+    margin: 5px 10px;
+    padding: 5px 10px;
+  }
+}
+
 .sign-out-icon {
   height: 20px;
   width: auto;
+}
+
+.sign-up-link {
+  font-size: 12px;
 }

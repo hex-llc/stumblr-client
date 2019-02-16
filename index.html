@@ -14,7 +14,13 @@
     <body>
       <nav class="navbar fixed-top navbar-dark bg-dark">
         <a class="navbar-brand" href="#">Stumblr.</a>
-        <button id="sign-out" class="btn btn-dark" type="button"><img class="sign-out-icon" src="./assets/images/logout.png" alt="sign out button" name="sign out button"/></button>
+
+        <div id="auth-options">
+<!-- MENU-BUTTON -->
+          <button class="btn btn-dark" type="button" data-toggle="modal" data-target="#change-password-modal"><img class="sign-out-icon" src="./assets/images/menu.png" alt="menu button" name="menu button"/></button>
+<!-- SIGN-OUT-BUTTON -->
+          <button id="sign-out" class="btn btn-dark" type="button"><img class="sign-out-icon" src="./assets/images/exit.png" alt="sign out button" name="sign out button"/></button>
+        </div>
       </nav>
 
       <div class="container">
@@ -46,30 +52,66 @@
           </div>
           <div class="col-3">
             <div class="auth sidebar">
-              <h2>Authentication</h2>
               <div class="auth-message">
               </div>
-              <form id="sign-up">
-                <h4>Sign-Up Form</h4>
-                <input type="email" name="credentials[email]" placeholder="email">
-                <input type="password" name="credentials[password]" placeholder="password">
-                <input type="password" name="credentials[password_confirmation]" placeholder="password confirmation">
-                <button type="submit">Submit</button>
-              </form>
+
               <form id="sign-in">
-                <h4>Sign-In Form</h4>
-                <input type="email" name="credentials[email]" placeholder="email">
+                <h4>Login</h4>
+                <input type="email" name="credentials[email]" placeholder="email or username">
                 <input type="password" name="credentials[password]" placeholder="password">
                 <button type="submit">Submit</button>
               </form>
-              <form id="change-pw">
-                <h4>Change Password Form</h4>
-                <input type="password" name="passwords[old]" placeholder="old password">
-                <input type="password" name="passwords[new]" placeholder="new password">
-                <button type="submit">Submit</button>
-              </form>
-              <h4>Sign-Out</h4>
-              <button type="button">Sign-Out</button>
+
+<!-- DONT PLACE ANYTHING BETWEEN HERE AND SIGN-UP-END -->
+<!-- SIGN-UP-LINK -->
+                <p>
+                  <a class="btn sign-up-link" data-toggle="collapse" href="#sign-up-collapsible" role="button" aria-expanded="false" aria-controls="sign-up-collapsible">Don't have an accout? Sign up here.</a>
+                </p>
+                <div class="row">
+                  <div class="col">
+                    <div class="collapse multi-collapse" id="sign-up-collapsible">
+                      <div class="card card-body">
+                        <form id="sign-up">
+<!-- SIGN-UP-FORM -->
+                          <h4>Sign Up</h4>
+                          <input type="email" name="credentials[username]" placeholder="username">
+                          <input type="email" name="credentials[email]" placeholder="email">
+                          <input type="password" name="credentials[password]" placeholder="password">
+                          <input type="password" name="credentials[password_confirmation]" placeholder="password confirmation">
+                          <button type="submit">Submit</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+<!-- SIGN-UP-END -->
+
+
+            </div>
+          </div>
+
+
+<!-- CHANGE PASSWORD MODAL -->
+          <div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="exampleModalLabel">Change Password Form</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form id="change-pw">
+
+                    <input type="password" name="passwords[old]" placeholder="old password">
+                    <input type="password" name="passwords[new]" placeholder="new password">
+                    <hr/>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+                </div>
+
+              </div>
             </div>
           </div>
         </div>
