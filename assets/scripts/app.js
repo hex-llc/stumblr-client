@@ -8,6 +8,8 @@
 const events = require('./auth/events.js')
 const blogEvents = require('./blogs/events.js')
 
+
+
 $(() => {
   // clicking on 'sign up' button will submit info in form and run function 'onSignUp'
   $('#sign-up').on('submit', events.onSignUp)

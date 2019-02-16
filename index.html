@@ -17,9 +17,9 @@
 
         <div id="auth-options">
 <!-- MENU-BUTTON -->
-          <button class="btn btn-dark" type="button" data-toggle="modal" data-target="#change-password-modal"><img class="sign-out-icon" src="./assets/images/menu.png" alt="menu button" name="menu button"/></button>
+          <button id="menu-button" class="btn btn-dark" type="button" data-toggle="modal" data-target="#change-password-modal" hidden><img class="sign-out-icon" src="./assets/images/menu.png" alt="menu button" name="menu button"/></button>
 <!-- SIGN-OUT-BUTTON -->
-          <button id="sign-out" class="btn btn-dark" type="button"><img class="sign-out-icon" src="./assets/images/exit.png" alt="sign out button" name="sign out button"/></button>
+          <button id="sign-out" class="btn btn-dark" type="button" hidden><img class="sign-out-icon" src="./assets/images/exit.png" alt="sign out button" name="sign out button"/></button>
         </div>
       </nav>
 
@@ -37,9 +37,8 @@
 
           </div>
           <div class="col-3">
-            <div class="auth sidebar">
-              <div id="auth-message">
-              </div>
+            <div id="auth-message"></div>
+            <div id="auth-box" class="sidebar">
 
               <form id="sign-in">
                 <h4>Login</h4>
@@ -51,7 +50,7 @@
 <!-- DONT PLACE ANYTHING BETWEEN HERE AND SIGN-UP-END -->
 <!-- SIGN-UP-LINK -->
                 <p>
-                  <a class="btn sign-up-link" data-toggle="collapse" href="#sign-up-collapsible" role="button" aria-expanded="false" aria-controls="sign-up-collapsible">Don't have an account? Sign up here.</a>
+                  <a id="sign-up-link" class="btn sign-up-link" data-toggle="collapse" href="#sign-up-collapsible" role="button" aria-expanded="false" aria-controls="sign-up-collapsible">Don't have an account? Sign up here.</a>
                 </p>
                 <div class="row">
                   <div class="col">
