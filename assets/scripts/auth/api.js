@@ -23,7 +23,7 @@ const changePw = function (data) {
   return $.ajax({
     url: config.apiUrl + '/change-password',
     method: 'PATCH',
-    header: {
+    headers: {
       Authorization: 'Token token=' + store.user.token
     },
     data: data
@@ -34,7 +34,7 @@ const signOut = function () {
   return $.ajax({
     url: config.apiUrl + '/sign-out',
     method: 'DELETE',
-    header: {
+    headers: {
       Authorization: 'Token token=' + store.user.token
     }
   })
