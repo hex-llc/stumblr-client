@@ -1,7 +1,6 @@
 const store = require('../store')
 
 const onSignUpSuccess = () => {
-  // Message Actions
   $('#auth-message-success').html('<strong>Signed up!</strong> and <br/>').fadeIn(500)
   setTimeout(() => $('#auth-message-success').fadeOut(500), 2000)
   $('#sign-up').trigger('reset')
@@ -15,8 +14,6 @@ const onSignUpFailure = () => {
 
 const onSignInSuccess = (responseData) => {
   store.user = responseData.user
-  // Message Actions
-  // appends the message if sign in action happened after sign up
   $('#auth-message-success').text('Signed in!').fadeIn(500)
   setTimeout(() => $('#auth-message-success').fadeOut(500), 2000)
   // a more concise way to hide and show stuff
@@ -48,8 +45,6 @@ const onSignOutSuccess = () => {
   $('#auth-message-success').text('Signed out!').fadeIn(500)
   setTimeout(() => $('#auth-message-success').fadeOut(500), 2000)
   store.user = null
-  // this asynchronous function is to make sign in and sign up
-  // forms appear AFTER the auth box expands slowly
   setTimeout(() => {
     $('.before-signin').fadeIn(200)
   }, 500)
