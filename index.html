@@ -12,14 +12,21 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
+      <div class="auth-message">
+        <div id="auth-message-success" class="alert alert-success shadow-lg" role="alert">
+          <!-- MESSAGES & ALERTS -->
+        </div>
+        <div id="auth-message-failure" class="alert alert-danger shadow-lg" role="alert">
+          <!-- MESSAGES & ALERTS -->
+        </div>
+      </div>
       <nav class="navbar fixed-top navbar-dark bg-dark">
         <a class="navbar-brand" href="#">Stumblr.</a>
-
         <div id="auth-options">
 <!-- MENU-BUTTON -->
-          <button class="btn btn-dark" type="button" data-toggle="modal" data-target="#change-password-modal"><img class="sign-out-icon" src="./assets/images/menu.png" alt="menu button" name="menu button"/></button>
+          <button id="menu-button" class="btn btn-dark after-signin" type="button" data-toggle="modal" data-target="#change-password-modal"><img class="sign-out-icon" src="./assets/images/menu.png" alt="menu button" name="menu button"/></button>
 <!-- SIGN-OUT-BUTTON -->
-          <button id="sign-out" class="btn btn-dark" type="button"><img class="sign-out-icon" src="./assets/images/exit.png" alt="sign out button" name="sign out button"/></button>
+          <button id="sign-out" class="btn btn-dark after-signin" type="button"><img class="sign-out-icon" src="./assets/images/exit.png" alt="sign out button" name="sign out button"/></button>
         </div>
       </nav>
 
@@ -37,23 +44,27 @@
 
           </div>
           <div class="col-3">
-            <div class="auth sidebar">
-              <div id="auth-message">
+            <div id="auth-box" class="sidebar">
+
+              <div class="menu-buttons">
+                <button class="btn btn-outline-dark after-signin">Create Blog</button>
+                <button class="btn btn-outline-dark after-signin">Dashboard</button>
+                <button class="btn btn-outline-dark after-signin">Friends</button>
               </div>
 
-              <form id="sign-in">
+              <form id="sign-in" class="before-signin">
                 <h4>Login</h4>
                 <input type="text" name="credentials[email]" placeholder="email or username">
                 <input type="password" name="credentials[password]" placeholder="password">
-                <button type="submit">Submit</button>
+                <button type="submit">Login</button>
               </form>
 
 <!-- DONT PLACE ANYTHING BETWEEN HERE AND SIGN-UP-END -->
 <!-- SIGN-UP-LINK -->
                 <p>
-                  <a class="btn sign-up-link" data-toggle="collapse" href="#sign-up-collapsible" role="button" aria-expanded="false" aria-controls="sign-up-collapsible">Don't have an account? Sign up here.</a>
+                  <a id="sign-up-link" class="btn sign-up-link before-signin" data-toggle="collapse" href="#sign-up-collapsible" role="button" aria-expanded="false" aria-controls="sign-up-collapsible">Don't have an account? Sign up here.</a>
                 </p>
-                <div class="row">
+                <div class="row before-signin">
                   <div class="col">
                     <div class="collapse multi-collapse" id="sign-up-collapsible">
                       <div class="card card-body">
@@ -64,14 +75,13 @@
                           <input type="email" name="credentials[email]" placeholder="email">
                           <input type="password" name="credentials[password]" placeholder="password">
                           <input type="password" name="credentials[password_confirmation]" placeholder="confirm password">
-                          <button type="submit">Submit</button>
+                          <button type="submit">Register</button>
                         </form>
                       </div>
                     </div>
                   </div>
                 </div>
 <!-- SIGN-UP-END -->
-
 
             </div>
           </div>
@@ -88,6 +98,9 @@
                   </button>
                 </div>
                 <div class="modal-body">
+                  <div id="chngpw-message-failure" class="alert alert-danger shadow-sm" role="alert">
+                    <!-- MESSAGES & ALERTS -->
+                  </div>
                   <form id="change-pw">
 
                     <input type="password" name="passwords[old]" placeholder="old password">
