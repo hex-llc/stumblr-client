@@ -1,47 +1,65 @@
 const store = require('../store')
 
 const onSignUpSuccess = () => {
-  $('#auth-message').html('You have successfully signed up')
+  // Message Actions
+  $('#auth-message-success').html('<strong>Signed up!</strong> and <br/>').fadeIn(500)
+  setTimeout(() => $('#auth-message-success').fadeOut(500), 2000)
   $('#sign-up').trigger('reset')
 }
 
 const onSignUpFailure = () => {
-  $('#auth-message').html('You have failed to sign up')
+  $('#auth-message-failure').text('Sign up failed! Try again.').fadeIn(500)
+  setTimeout(() => $('#auth-message-failure').fadeOut(500), 2000)
   $('#sign-up').trigger('reset')
 }
 
 const onSignInSuccess = (responseData) => {
-  $('#auth-message').html('You have successfully signed in')
   store.user = responseData.user
-  $('#sign-out').removeAttr('hidden')
-  $('#menu-button').removeAttr('hidden')
+  // Message Actions
+  // appends the message if sign in action happened after sign up
+  $('#auth-message-success').text('Signed in!').fadeIn(500)
+  setTimeout(() => $('#auth-message-success').fadeOut(500), 2000)
+  // a more concise way to hide and show stuff
+  $('.after-signin').fadeIn(1000)
+  $('.before-signin').hide()
   $('#sign-in').trigger('reset')
-  $('#auth-box').hide()
 }
 
 const onSignInFailure = () => {
-  $('#auth-message').html('You have failed to sign in')
+  $('#auth-message-failure').text('Sign in failed! Try again.').fadeIn(500)
+  setTimeout(() => $('#auth-message-failure').fadeOut(500), 2000)
   $('#sign-in').trigger('reset')
 }
 
 const onChangePwSuccess = () => {
-  $('#auth-message').html('You have successfully changed password')
+  $('#auth-message-success').text('Password is changed!').fadeIn(500)
+  setTimeout(() => $('#auth-message-success').fadeOut(500), 2000)
+  $('#chngpw-message-failure').fadeOut(500)
+  $('#change-pw').trigger('reset')
+  $('#change-password-modal').modal('hide')
 }
 
 const onChangePwFailure = () => {
-  $('#auth-message').html('You have failed to change password')
+  $('#chngpw-message-failure').text('Password change is failed! Try again.').fadeIn(500)
+  $('#change-pw').trigger('reset')
 }
 
 const onSignOutSuccess = () => {
-  $('#auth-message').html('You have successfully signed out')
+  $('#auth-message-success').text('Signed out!').fadeIn(500)
+  setTimeout(() => $('#auth-message-success').fadeOut(500), 2000)
   store.user = null
-  $('#sign-out').attr('hidden', 'true')
-  $('#menu-button').attr('hidden', 'true')
-  $('#auth-box').fadeIn(100)
+  // this asynchronous function is to make sign in and sign up
+  // forms appear AFTER the auth box expands slowly
+  setTimeout(() => {
+    $('.before-signin').fadeIn(200)
+  }, 500)
+  $('.after-signin').fadeOut(500)
+  $('#sign-up-collapsible').collapse('hide')
 }
 
 const onSignOutFailure = () => {
-  $('#auth-message').html('You have failed to sign out')
+  $('#auth-message-failure').text('Sign out failed!').fadeIn(500)
+  setTimeout(() => $('#auth-message-failure').fadeOut(500), 2000)
 }
 
 module.exports = {

@@ -1,24 +1,46 @@
 @import '~bootstrap/scss/bootstrap';
 
+body {
+  height: calc(calc(100vh) - 56px);
+  margin-top: 56px;
+  padding: 0;
+}
+
 .container {
-  margin-top: 65px;
+  padding: 20px;
 }
 
 .sidebar {
-  border: 1px solid #000;
+  border: 1px solid #bbb;
+  border-radius: 10px 0;
   bottom: 0;
-  padding: 10px 5px;
+  box-shadow: 5px 5px 1px #ddd;
+  height: auto;
+  padding: 20px;
   position: sticky;
   right: 0;
   text-align: center;
   top: 65px;
+  transition: height 1s ease-in;
+  width: 220px;
 
-  & h2 {
-    border-bottom: 1px solid #000;
+  .menu-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    .btn {
+      margin: 10px 10px;
+    }
   }
 }
 
-form{
+.card {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+form {
   display: flex;
   flex-direction: column;
 
@@ -30,6 +52,7 @@ form{
   input {
     border: 0;
     border-bottom: 1px solid grey;
+    font-size: 14px;
     margin: 5px 10px;
     padding: 5px 10px;
   }
@@ -42,4 +65,21 @@ form{
 
 .sign-up-link {
   font-size: 12px;
+}
+
+
+.auth-message {
+  display: flex;
+  justify-content: center;
+  margin: 10px auto;
+  opacity: .9;
+  padding: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 9;
+
+  .alert {
+    margin: 0;
+    text-align: center;
+  }
 }
