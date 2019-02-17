@@ -8,7 +8,9 @@
 const events = require('./auth/events.js')
 const blogEvents = require('./blogs/events.js')
 
-
+// keep elements hidden which are gonna appear after signin
+$('.after-signin').hide()
+$('#auth-message-success, #auth-message-failure, #chngpw-message-failure').hide()
 
 $(() => {
   // clicking on 'sign up' button will submit info in form and run function 'onSignUp'
@@ -21,4 +23,14 @@ $(() => {
   $('#sign-out').on('click', events.onSignOut)
   // clicking on 'Create Blog' button will submit info in form and run 'onCreateBlog'
   $('#blog-form').on('submit', blogEvents.onCreateBlog)
+
+  // clear forms when sign-up collapsible is hidden
+  $('#sign-up-collapsible').on('hidden.bs.collapse', function () {
+    $('#sign-up').trigger('reset')
+  })
+
+  // clear forms when change-pw modal is hidden
+  $('#change-password-modal').on('hidden.bs.modal', function () {
+    $('#change-pw').trigger('reset')
+  })
 })
