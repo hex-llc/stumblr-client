@@ -24,30 +24,28 @@
         <a class="navbar-brand" href="#">Stumblr.</a>
         <div id="auth-options">
 <!-- MENU-BUTTON -->
-          <button id="menu-button" class="btn btn-dark after-signin" type="button" data-toggle="modal" data-target="#change-password-modal"><img class="sign-out-icon" src="./assets/images/menu.png" alt="menu button" name="menu button"/></button>
+          <button id="menu-button" class="btn btn-dark after-signin" type="button" data-toggle="modal" data-target="#change-password-modal"><img class="sign-out-icon" src="./assets/images/menu.png" alt="menu button"/></button>
 <!-- SIGN-OUT-BUTTON -->
-          <button id="sign-out" class="btn btn-dark after-signin" type="button"><img class="sign-out-icon" src="./assets/images/exit.png" alt="sign out button" name="sign out button"/></button>
+          <button id="sign-out" class="btn btn-dark after-signin" type="button"><img class="sign-out-icon" src="./assets/images/exit.png" alt="sign out button"/></button>
         </div>
       </nav>
 
       <div class="container">
         <div class="row">
           <div class="col-9 content">
-            <!-- This is where our content will go -->
+<!-- MAIN CONTENT -->
 
-            <form id = "blog-form">
-              <h4>Create A Post</h4>
-              <input type="text" name="blog[title]" placeholder="Title">
-              <input type="text" name="blog[body]" placeholder="Content">
-              <button type="submit">Create Blog</button>
-            </form>
 
+<!-- END MAIN CONTENT  -->
+
+
+<!-- SIDEBAR -->
           </div>
           <div class="col-3">
             <div id="auth-box" class="sidebar">
 
               <div class="menu-buttons">
-                <button class="btn btn-outline-dark after-signin">Create Blog</button>
+                <button class="btn btn-outline-dark after-signin" type="button" data-toggle="modal" data-target="#create-blog">Create Blog</button>
                 <button class="btn btn-outline-dark after-signin">Dashboard</button>
                 <button class="btn btn-outline-dark after-signin">Friends</button>
               </div>
@@ -58,6 +56,8 @@
                 <input type="password" name="credentials[password]" placeholder="password">
                 <button type="submit">Login</button>
               </form>
+<!-- END SIDEBAR -->
+
 
 <!-- DONT PLACE ANYTHING BETWEEN HERE AND SIGN-UP-END -->
 <!-- SIGN-UP-LINK -->
@@ -116,6 +116,31 @@
         </div>
       </div>
 
-      <!-- CREATE BLOG FORM -->
+<!-- CREATE BLOG MODAL -->
+
+      <div class="modal fade" id="create-blog" tabindex="-1" role="dialog" aria-labelledby="create-blog-label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="create-blog">What you wanna share with world?</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form id ="blog-form">
+              <div class="modal-body-create-blog">
+                  <input id="title-input" class="title-input" type="text" name="blog[title]" placeholder="Title here, please.">
+                  <textarea id="content-input" class="content-input" type="text" name="blog[body]" rows="10" column="500" placeholder="What do you feel like?"></textarea>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-success btn-block">Create</button>
+                <button type="button" class="btn btn-outline-warning" data-dismiss="modal">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+<!-- ENDING CREATE BLOG MODAL -->
     </body>
 </html>

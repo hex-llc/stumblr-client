@@ -83,3 +83,20 @@ form {
     text-align: center;
   }
 }
+
+.modal-body-create-blog {
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+
+  .title-input {
+    font-size: 25px;
+  }
+
+  .content-input {
+    font-size: 18px;
+    line-height: 1.5em;
+    margin-top: 20px;
+  }
+}
