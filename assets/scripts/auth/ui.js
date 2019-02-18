@@ -20,6 +20,8 @@ const onSignInSuccess = (responseData) => {
   $('.after-signin').fadeIn(1000)
   $('.before-signin').hide()
   $('#sign-in').trigger('reset')
+  $('#greet-message').html('<p>- Hello, <strong>' + store.user.username + '</strong></p>')
+  $('#modal-title').html(`What you wanna share, <strong><em>${store.user.username}</em></strong>?`)
 }
 
 const onSignInFailure = () => {
@@ -50,6 +52,7 @@ const onSignOutSuccess = () => {
   }, 500)
   $('.after-signin').fadeOut(500)
   $('#sign-up-collapsible').collapse('hide')
+  $('#greet-message').text('')
 }
 
 const onSignOutFailure = () => {

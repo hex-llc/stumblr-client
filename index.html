@@ -43,11 +43,11 @@
           </div>
           <div class="col-3">
             <div id="auth-box" class="sidebar">
-
+              <div id="greet-message" class="greet-message"></div>
               <div class="menu-buttons">
                 <button class="btn btn-outline-dark after-signin" type="button" data-toggle="modal" data-target="#create-blog">Create Blog</button>
-                <button class="btn btn-outline-dark after-signin">Dashboard</button>
-                <button class="btn btn-outline-dark after-signin">Friends</button>
+                <button id="dashboard-btn" class="btn btn-outline-dark after-signin">Dashboard</button>
+                <button id="friends-btn" class="btn btn-outline-dark after-signin">Friends</button>
               </div>
 
               <form id="sign-in" class="before-signin">
@@ -122,7 +122,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="create-blog">What you wanna share with world?</h5>
+              <h5 id="modal-title" class="modal-title"></h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -130,7 +130,7 @@
             <form id ="blog-form">
               <div class="modal-body-create-blog">
                   <input id="title-input" class="title-input" type="text" name="blog[title]" placeholder="Title here, please.">
-                  <textarea id="content-input" class="content-input" type="text" name="blog[body]" rows="10" column="500" placeholder="What do you feel like?"></textarea>
+                  <textarea id="content-input" class="content-input" name="blog[body]" rows="10" cols="100" placeholder="What do you feel like?"></textarea>
               </div>
               <div class="modal-footer">
                 <button type="submit" class="btn btn-success btn-block">Create</button>
