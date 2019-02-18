@@ -8,13 +8,14 @@ body {
 
 .container {
   padding: 20px;
+  width: 100%;
 }
 
 .sidebar {
   border: 1px solid #bbb;
   border-radius: 10px 0;
   bottom: 0;
-  box-shadow: 5px 5px 1px #ddd;
+  box-shadow: 5px 5px 6px #ddd;
   height: auto;
   padding: 20px;
   position: sticky;
@@ -23,6 +24,7 @@ body {
   top: 65px;
   transition: height 1s ease-in;
   width: 220px;
+  margin: 40px 0;
 
   .menu-buttons {
     display: flex;
@@ -102,6 +104,48 @@ form {
 }
 
 .greet-message {
-  font-size: 12px;
-  font-style: oblique;
+  font-size: 16px;
+}
+
+.blog-container {
+  display: flex;
+  height: calc(calc(100vh)/2);
+  padding: 40px 10px;
+  max-height: 450px;
+
+  .blog-profile-pic {
+    background-color: grey;
+    border-radius: 5px;
+    margin: 15px;
+    height: 75px;
+    width: 75px;
+  }
+
+  .blog-post {
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 100%;
+
+    .blog-post-header {
+      width: 100%;
+      height: 40px;
+      background-color: lightgrey;
+    }
+
+    .blog-post-title {
+
+    }
+
+    .blog-post-body {
+      flex-grow: 1;
+    }
+
+    .blog-post-footer {
+      width: 100%;
+      height: 40px;
+      background-color: lightgrey;
+    }
+  }
 }

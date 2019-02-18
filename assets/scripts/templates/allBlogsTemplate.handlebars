@@ -1,8 +1,14 @@
 {{#each blogs as |blog|}}
-  <div data-id='{{blog._id}}' class="blog-post">
-    <div class="blog-post-header">@{{blog.owner.username}}</div>
-    <h3 class="blog-post-title">{{blog.title}}</h3>
-    <p class="blog-post-body">{{blog.body}}</p>
-    <div class="blog-post-footer">Created at: {{formatDate blog.createdAt}}</div>
+  <div class="blog-container">
+
+    <div class="blog-profile-pic shadow-sm"></div>
+
+    <div data-id='{{blog._id}}' class="blog-post shadow">
+      <div class="blog-post-header">@{{blog.owner.username}}</div>
+      <h3 class="blog-post-title">{{blog.title}}</h3>
+      <p class="blog-post-body">{{blog.body}}</p>
+      <div class="blog-post-footer">Created at: {{formatDate blog.createdAt}}</div>
+    </div>
+
   </div>
 {{/each}}

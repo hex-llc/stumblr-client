@@ -20,7 +20,7 @@ const onSignInSuccess = (responseData) => {
   $('.after-signin').fadeIn(1000)
   $('.before-signin').hide()
   $('#sign-in').trigger('reset')
-  $('#greet-message').html('<p>- Hello, <strong>' + store.user.username + '</strong></p>')
+  $('#greet-message').html('<p> > Hello, <strong><em>' + store.user.username + '</em></strong></p>')
   $('#modal-title').html(`What you wanna share, <strong><em>${store.user.username}</em></strong>?`)
 }
 
