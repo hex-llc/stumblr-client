@@ -21,7 +21,7 @@ const onSignInSuccess = (responseData) => {
   $('.before-signin').hide()
   $('#sign-in').trigger('reset')
   $('#greet-message').html('<p> > Hello, <strong><em>' + store.user.username + '</em></strong></p>')
-  $('#modal-title').html(`What you wanna share, <strong><em>${store.user.username}</em></strong>?`)
+  $('#modal-title').html(`What would you like to share, <strong><em>${store.user.username}</em></strong>?`)
 }
 
 const onSignInFailure = () => {

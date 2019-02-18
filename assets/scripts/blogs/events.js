@@ -19,8 +19,7 @@ const onCreateBlog = function (event) {
     .catch(ui.onCreateBlogFailure)
 }
 
-const onGetUserBlogs = function (event) {
-  event.preventDefault()
+const onGetUserBlogs = function () {
   api.getUserBlogs()
     .then(ui.onGetUserBlogsSuccess)
     .catch(ui.onGetUserBlogsError)
@@ -34,9 +33,19 @@ const onShowBlog = function (event) {
     .catch(ui.onShowBlogError)
 }
 
+const onUpdateBlog = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  api.updateBlog(data)
+    .then(ui.onUpdateBlogSuccess)
+    .then(() => onGetUserBlogs())
+    .catch(ui.onUpdateBlogError)
+}
+
 module.exports = {
   onGetBlogs,
   onCreateBlog,
   onGetUserBlogs,
-  onShowBlog
+  onShowBlog,
+  onUpdateBlog
 }
