@@ -21,7 +21,7 @@ const onCreateBlogSuccess = () => {
 }
 
 const onCreateBlogFailure = () => {
-  $('#create-blog-failure').html('<P>Failure! Make sure you have a <strong>title</strong> and a<strong> body</strong>!</p>').fadeIn(500)
+  $('#create-blog-failure').html('<P>Make sure you have a <strong>title</strong> and a<strong> body</strong>!</p>').fadeIn(500)
   setTimeout(() => $('#auth-message-success').fadeOut(500), 2000)
 }
 
@@ -37,12 +37,23 @@ const onGetUserBlogsError = () => {
 
 const onShowBlogSuccess = (responseData) => {
   store.user.blog = responseData.blog
-  console.log(store.user)
-  console.log(store.user.blog)
+  $('#update-modal-title').html(`What would you like to update, <strong><em>${store.user.username}</em></strong>?`)
+  $('#update-title-input').val(`${store.user.blog.title}`)
+  $('#update-content-input').val(`${store.user.blog.body}`)
 }
 
 const onShowBlogError = () => {
   console.log('Error on show!')
+}
+
+const onUpdateBlogSuccess = () => {
+  $('#auth-message-success').html('<P>Your blog has been <strong>updated!</strong></p>').fadeIn(500)
+  setTimeout(() => $('#auth-message-success').fadeOut(500), 2000)
+  $('#update-blog').modal('hide')
+}
+
+const onUpdateBlogError = () => {
+  $('#auth-message').html('Something went wrong and we can\'t update your blog, sorry!')
 }
 
 module.exports = {
@@ -53,5 +64,7 @@ module.exports = {
   onGetUserBlogsSuccess,
   onGetUserBlogsError,
   onShowBlogSuccess,
-  onShowBlogError
+  onShowBlogError,
+  onUpdateBlogSuccess,
+  onUpdateBlogError
 }

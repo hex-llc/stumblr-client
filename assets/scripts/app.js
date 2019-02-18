@@ -10,7 +10,7 @@ const blogEvents = require('./blogs/events.js')
 
 // keep elements hidden which are gonna appear after signin
 $('.after-signin').hide()
-$('#auth-message-success, #auth-message-failure, #chngpw-message-failure, #create-blog-failure').hide()
+$('.alert').hide()
 
 $(() => {
   // index blogs once DOM object with .content is safe to manipulate
@@ -29,6 +29,8 @@ $(() => {
   $('#dashboard-btn').on('click', blogEvents.onGetUserBlogs)
   // clicking on edit button will run function 'onShowBlog' and use the data-id to find the blog._id
   $('.content').on('click', '.blog-edit-btn', blogEvents.onShowBlog)
+  // clicking on `Update` button will submit info in form and run function onUpdateBlog
+  $('#update-blog-form').on('submit', blogEvents.onUpdateBlog)
 
   // clear forms when sign-up collapsible is hidden
   $('#sign-up-collapsible').on('hidden.bs.collapse', function () {

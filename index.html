@@ -34,10 +34,7 @@
         <div class="row">
           <div class="col-9 content">
 <!-- MAIN CONTENT -->
-
-
 <!-- END MAIN CONTENT  -->
-
 
 <!-- SIDEBAR -->
           </div>
@@ -81,13 +78,12 @@
                     </div>
                   </div>
                 </div>
-<!-- SIGN-UP-END -->
-
             </div>
           </div>
 
 
 <!-- CHANGE PASSWORD MODAL -->
+
           <div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
@@ -133,17 +129,42 @@
             <form id ="blog-form">
               <div class="modal-body-create-blog">
                   <input id="title-input" class="title-input" type="text" name="blog[title]" placeholder="Title here, please.">
-                  <textarea id="content-input" class="content-input" name="blog[body]" rows="10" cols="100" placeholder="What do you feel like?"></textarea>
+                  <textarea id="content-input" class="content-input" name="blog[body]" rows="10" cols="100" placeholder="What's on your mind?"></textarea>
               </div>
               <div class="modal-footer">
                 <button id="create-blog-submit-btn" type="submit" class="btn btn-success btn-block">Create</button>
-                <button type="button" class="btn btn-outline-warning" data-dismiss="modal">Cancel</button>
               </div>
             </form>
           </div>
         </div>
       </div>
 
-<!-- ENDING CREATE BLOG MODAL -->
+<!-- UPDATE BLOG MODAL -->
+
+      <div class="modal fade" id="update-blog" tabindex="-1" role="dialog" aria-labelledby="update-blog-label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 id="update-modal-title" class="modal-title"></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div id="update-blog-failure" class="alert alert-danger" role="alert">
+              <!-- MESSAGES & ALERTS -->
+            </div>
+            <form id ="update-blog-form">
+              <div class="modal-body-create-blog">
+                  <input id="update-title-input" class="title-input" type="text" name="blog[title]">
+                  <textarea id="update-content-input" class="content-input" name="blog[body]" rows="10" cols="100"></textarea>
+              </div>
+              <div class="modal-footer">
+                <button id="update-blog-submit-btn" type="submit" class="btn btn-success btn-block">Update</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
     </body>
 </html>
