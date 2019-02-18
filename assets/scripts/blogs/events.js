@@ -18,7 +18,15 @@ const onCreateBlog = function (event) {
     .catch(ui.onCreateBlogFailure)
 }
 
+const onGetUserBlogs = function (event) {
+  event.preventDefault()
+  api.getUserBlogs()
+    .then(ui.onGetUserBlogsSuccess)
+    .catch(ui.onGetUserBlogsError)
+}
+
 module.exports = {
   onGetBlogs,
-  onCreateBlog
+  onCreateBlog,
+  onGetUserBlogs
 }
