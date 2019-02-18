@@ -1,0 +1,8 @@
+{{#each blogs as |blog|}}
+  <div data-id='{{blog._id}}' class="blog-post">
+    <div class="blog-post-header">@{{blog.owner.username}} <button class="btn" type="button"><img class="icon-style" src="./assets/images/edit.png" alt="edit button"/></button></div>
+    <h3 class="blog-post-title">{{blog.title}}</h3>
+    <p class="blog-post-body">{{blog.body}}</p>
+    <div class="blog-post-footer">Created at: {{formatDate blog.createdAt}}</div>
+  </div>
+{{/each}}
