@@ -15,11 +15,14 @@ const onGetAllBlogsError = () => {
 }
 
 const onCreateBlogSuccess = () => {
-  $('#auth-message').html('You have successfully created a Blog!')
+  $('#auth-message-success').html('<P>Your blog has been <strong>posted!</strong></p>').fadeIn(500)
+  setTimeout(() => $('#auth-message-success').fadeOut(500), 2000)
+  $('#create-blog').modal('hide')
 }
 
 const onCreateBlogFailure = () => {
-  $('#auth-message').html('You have failed to create a Blog')
+  $('#create-blog-failure').html('<P>Failure! Make sure you have a <strong>title</strong> and a<strong> body</strong>!</p>').fadeIn(500)
+  setTimeout(() => $('#auth-message-success').fadeOut(500), 2000)
 }
 
 const onGetUserBlogsSuccess = (responseData) => {

@@ -15,6 +15,7 @@ const onCreateBlog = function (event) {
   const data = getFormFields(event.target)
   api.createBlog(data)
     .then(ui.onCreateBlogSuccess)
+    .then(onGetBlogs)
     .catch(ui.onCreateBlogFailure)
 }
 
