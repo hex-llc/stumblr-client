@@ -31,8 +31,19 @@ const getUserBlogs = function () {
   })
 }
 
+const showBlog = function (dataId) {
+  return $.ajax({
+    url: config.apiUrl + '/blogs/' + dataId,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   getAllBlogs,
   createBlog,
-  getUserBlogs
+  getUserBlogs,
+  showBlog
 }

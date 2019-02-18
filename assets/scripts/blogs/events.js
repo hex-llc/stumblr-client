@@ -26,8 +26,17 @@ const onGetUserBlogs = function (event) {
     .catch(ui.onGetUserBlogsError)
 }
 
+const onShowBlog = function (event) {
+  event.preventDefault()
+  const dataId = $(this).parent().parent().data('id')
+  api.showBlog(dataId)
+    .then(ui.onShowBlogSuccess)
+    .catch(ui.onShowBlogError)
+}
+
 module.exports = {
   onGetBlogs,
   onCreateBlog,
-  onGetUserBlogs
+  onGetUserBlogs,
+  onShowBlog
 }

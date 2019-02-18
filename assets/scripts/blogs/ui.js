@@ -26,13 +26,23 @@ const onCreateBlogFailure = () => {
 }
 
 const onGetUserBlogsSuccess = (responseData) => {
-  store.user_blogs = responseData.blogs
-  const userBlogsHtml = allUserBlogsTemplate({ blogs: store.user_blogs.reverse() })
+  store.user.blogs = responseData.blogs
+  const userBlogsHtml = allUserBlogsTemplate({ blogs: store.user.blogs.reverse() })
   $('.content').html(userBlogsHtml)
 }
 
 const onGetUserBlogsError = () => {
   $('#auth-message').html('Something went wrong and we can\'t get your blogs, sorry!')
+}
+
+const onShowBlogSuccess = (responseData) => {
+  store.user.blog = responseData.blog
+  console.log(store.user)
+  console.log(store.user.blog)
+}
+
+const onShowBlogError = () => {
+  console.log('Error on show!')
 }
 
 module.exports = {
@@ -41,5 +51,7 @@ module.exports = {
   onCreateBlogSuccess,
   onCreateBlogFailure,
   onGetUserBlogsSuccess,
-  onGetUserBlogsError
+  onGetUserBlogsError,
+  onShowBlogSuccess,
+  onShowBlogError
 }
