@@ -27,6 +27,8 @@ $(() => {
   $('#blog-form').on('submit', blogEvents.onCreateBlog)
   // fetch user's blogs
   $('#dashboard-btn').on('click', blogEvents.onGetUserBlogs)
+  // clicking on edit button will run function 'onShowBlog' and use the data-id to find the blog._id
+  $('.content').on('click', '.blog-edit-btn', blogEvents.onShowBlog)
 
   // clear forms when sign-up collapsible is hidden
   $('#sign-up-collapsible').on('hidden.bs.collapse', function () {
