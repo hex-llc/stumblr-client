@@ -24,9 +24,9 @@
         <a class="navbar-brand" href="#">Stumblr.</a>
         <div id="auth-options">
 <!-- MENU-BUTTON -->
-          <button id="menu-button" class="btn btn-dark after-signin" type="button" data-toggle="modal" data-target="#change-password-modal"><img class="sign-out-icon" src="./assets/images/menu.png" alt="menu button"/></button>
+          <button id="menu-button" class="btn btn-dark after-signin" type="button" data-toggle="modal" data-target="#change-password-modal"><img class="icon-style" src="./assets/images/menu.png" alt="menu button"/></button>
 <!-- SIGN-OUT-BUTTON -->
-          <button id="sign-out" class="btn btn-dark after-signin" type="button"><img class="sign-out-icon" src="./assets/images/exit.png" alt="sign out button"/></button>
+          <button id="sign-out" class="btn btn-dark after-signin" type="button"><img class="icon-style" src="./assets/images/exit.png" alt="sign out button"/></button>
         </div>
       </nav>
 
@@ -127,13 +127,16 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
+            <div id="create-blog-failure" class="alert alert-danger" role="alert">
+              <!-- MESSAGES & ALERTS -->
+            </div>
             <form id ="blog-form">
               <div class="modal-body-create-blog">
                   <input id="title-input" class="title-input" type="text" name="blog[title]" placeholder="Title here, please.">
                   <textarea id="content-input" class="content-input" name="blog[body]" rows="10" cols="100" placeholder="What do you feel like?"></textarea>
               </div>
               <div class="modal-footer">
-                <button type="submit" class="btn btn-success btn-block">Create</button>
+                <button id="create-blog-submit-btn" type="submit" class="btn btn-success btn-block">Create</button>
                 <button type="button" class="btn btn-outline-warning" data-dismiss="modal">Cancel</button>
               </div>
             </form>
