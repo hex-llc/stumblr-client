@@ -110,9 +110,11 @@ form {
 
 .blog-container {
   display: flex;
+  justify-content: stretch;
   height: calc(calc(100vh)/2);
   max-height: 450px;
   padding: 40px 10px;
+  box-sizing: border-box;
 
   .blog-profile-pic-frame {
     border-radius: 5px;
@@ -131,7 +133,7 @@ form {
     border-radius: 5px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: stretch;
     overflow: hidden;
     width: calc(calc(100%) - 75px);
     padding: 0;
@@ -146,6 +148,7 @@ form {
       justify-content: space-between;
       padding: 10px 20px;
       width: 100%;
+      margin: 0;
 
       & button {
         padding: 5px;
@@ -153,24 +156,26 @@ form {
     }
 
     .blog-post-title {
-      max-height: 53px;
+      max-height: 75px;
       padding: 5px 20px;
+      margin: 0;
     }
 
     .blog-post-body {
-      flex-grow: 1;
-      margin-bottom: -28px;
-      max-height: 117px;
+      height: 275px;
       overflow: hidden;
       padding: 10px 20px;
+      margin: 0;
     }
 
     .blog-post-footer {
+      display: flex;
+      justify-content: space-between;
       background-color: #eee;
       color: #bbb;
       font-size: 12px;
       height: 40px;
-      margin-bottom: -3px;
+      margin: 0;
       padding: 10px 20px;
       width: 100%;
     }
