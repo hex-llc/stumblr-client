@@ -5,7 +5,7 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 const ui = require('./ui.js')
 const store = require('../store.js')
 
-const onGetBlogs = function () {
+const onGetAllBlogs = function () {
   api.getAllBlogs()
     .then(ui.onGetAllBlogsSuccess)
     .catch(ui.onGetAllBlogsError)
@@ -16,7 +16,7 @@ const onCreateBlog = function (event) {
   const data = getFormFields(event.target)
   api.createBlog(data)
     .then(ui.onCreateBlogSuccess)
-    .then(onGetBlogs)
+    .then(onGetAllBlogs)
     .catch(ui.onCreateBlogFailure)
 }
 
@@ -58,7 +58,7 @@ const onDeleteBlog = function (event) {
 }
 
 module.exports = {
-  onGetBlogs,
+  onGetAllBlogs,
   onCreateBlog,
   onGetUserBlogs,
   onShowBlog,

@@ -8,6 +8,7 @@ const onGetAllBlogsSuccess = (responseData) => {
   store.blogs = responseData.blogs
   const allBlogsHtml = allBlogsTemplate({ blogs: store.blogs.reverse() })
   $('.content').html(allBlogsHtml)
+  $('#home-btn').hide()
 }
 
 const onGetAllBlogsError = () => {
@@ -29,6 +30,8 @@ const onGetUserBlogsSuccess = (responseData) => {
   store.user.blogs = responseData.blogs
   const userBlogsHtml = allUserBlogsTemplate({ blogs: store.user.blogs.reverse() })
   $('.content').html(userBlogsHtml)
+  $('#my-blogs-btn').hide()
+  $('#home-btn').show()
 }
 
 const onGetUserBlogsError = () => {
