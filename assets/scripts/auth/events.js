@@ -26,9 +26,17 @@ const onSignUp = function (event) {
 }
 
 const onSignIn = function (event) {
-  console.log('ran')
   event.preventDefault()
   const data = getFormFields(event.target)
+  // checking to see if input was a username or email
+  const usernameOrEmail = data.credentials.email
+  // if username is inputted, set email to null and created a username field in credentials
+  if (usernameOrEmail.search('@') === -1) {
+    console.log('did not find a @ in your string')
+    data.credentials.username = usernameOrEmail
+    data.credentials.email = null
+  }
+  //  const updated_data = data.credentials.username
   api.signIn(data)
     .then(ui.onSignInSuccess)
     .catch(ui.onSignInFailure)
