@@ -51,10 +51,22 @@ const updateBlog = function (data) {
     data: data
   })
 }
+
+const deleteBlog = function (blogId) {
+  return $.ajax({
+    url: config.apiUrl + '/blogs/' + blogId,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   getAllBlogs,
   createBlog,
   getUserBlogs,
   showBlog,
-  updateBlog
+  updateBlog,
+  deleteBlog
 }
