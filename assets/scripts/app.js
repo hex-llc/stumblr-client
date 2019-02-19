@@ -11,10 +11,11 @@ const blogEvents = require('./blogs/events.js')
 // keep elements hidden which are gonna appear after signin
 $('.after-signin').hide()
 $('.alert').hide()
+$('#home-btn').hide()
 
 $(() => {
   // index blogs once DOM object with .content is safe to manipulate
-  $('.content').ready(blogEvents.onGetBlogs)
+  $('.content').ready(blogEvents.onGetAllBlogs)
   // clicking on 'sign up' button will submit info in form and run function 'onSignUp'
   $('#sign-up').on('submit', authEvents.onSignUp)
   // clicking on 'sign in' button will submit info in form and run function 'onSignIn'
@@ -26,7 +27,12 @@ $(() => {
   // clicking on 'Create Blog' button will submit info in form and run 'onCreateBlog'
   $('#blog-form').on('submit', blogEvents.onCreateBlog)
   // fetch user's blogs
-  $('#dashboard-btn').on('click', blogEvents.onGetUserBlogs)
+  $('#my-blogs-btn').on('click', blogEvents.onGetUserBlogs)
+  // fetch all blogs
+  $('#home-btn').on('click', () => {
+    $('#my-blogs-btn').show()
+    blogEvents.onGetAllBlogs()
+  })
   // clicking on edit button will run function 'onShowBlog' and use the data-id to find the blog._id
   $('.content').on('click', '.blog-edit-btn', blogEvents.onShowBlog)
   // clicking on `Update` button will submit info in form and run function 'onUpdateBlog'
