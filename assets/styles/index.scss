@@ -147,10 +147,8 @@ form {
       padding: 10px 20px;
       width: 100%;
 
-      .blog-edit-btn {
-        height: 20px;
-        margin: 0;
-        padding: 0;
+      & button {
+        padding: 5px;
       }
     }
 
