@@ -21,9 +21,9 @@ const createComment = function (data) {
   })
 }
 
-const showComment = function (dataId) {
+const showComment = function (commentId) {
   return $.ajax({
-    url: config.apiUrl + '/comments/' + dataId,
+    url: config.apiUrl + '/comments/' + commentId,
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
