@@ -1,6 +1,6 @@
 'use strict'
 
-const store = require('../store')
+const store = require('../store.js')
 const allBlogsTemplate = require('../templates/allBlogsTemplate.handlebars')
 const allUserBlogsTemplate = require('../templates/allUserBlogsTemplate.handlebars')
 

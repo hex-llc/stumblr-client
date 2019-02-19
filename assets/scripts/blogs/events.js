@@ -16,7 +16,13 @@ const onCreateBlog = function (event) {
   const data = getFormFields(event.target)
   api.createBlog(data)
     .then(ui.onCreateBlogSuccess)
-    .then(onGetAllBlogs)
+    .then(() => {
+      if (store.isInHome) {
+        onGetAllBlogs()
+      } else {
+        onGetUserBlogs()
+      }
+    })
     .catch(ui.onCreateBlogFailure)
 }
 
