@@ -32,7 +32,6 @@ const onSignIn = function (event) {
   const usernameOrEmail = data.credentials.email
   // if username is inputted, set email to null and created a username field in credentials
   if (usernameOrEmail.search('@') === -1) {
-    console.log('did not find a @ in your string')
     data.credentials.username = usernameOrEmail
     data.credentials.email = null
   }
