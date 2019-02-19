@@ -12,7 +12,27 @@
         </div>
       </div>
       <h3 class="blog-post-title">{{blog.title}}</h3>
-      <p class="blog-post-body">{{blog.body}}</p>
+      <div class="blog-post-body">
+        <p>{{blog.body}}</p>
+        <div class="container blog-post-comment-container">
+          <h5 class="blog-comments-title">Comments</h5>
+          {{#each blog.comments as |comment|}}
+          <div class="row comment-post">
+            <div class="comment-post-profile">
+              <img class="blog-commment-profile-pic" src="./assets/images/default_profile.png"/>
+            </div>
+            <div class="comment-post-content">
+              <div class="comment-post-owner">
+                @{{comment.owner.username}}
+              </div>
+              <div class="comment-post-body">
+                {{comment.text}}
+              </div>
+            </div>
+          </div>
+          {{/each}}
+        </div>
+      </div>
       <div class="expand-wrapper"><button class="expand-button"></button></div>
       <div class="blog-post-footer">Created on: {{formatDate blog.createdAt}}</div>
     </div>

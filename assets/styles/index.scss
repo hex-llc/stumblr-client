@@ -182,6 +182,15 @@ form {
       padding: 10px 20px;
     }
 
+    .blog-comments-title{
+      text-align: center;
+    }
+
+    .blog-commment-profile-pic {
+      border-radius: 100%;
+      height: 45px;
+    }
+
     .expand-wrapper {
       align-items: flex-end;
       background-image: linear-gradient(to top, rgba(255,255,255,1), rgba(0,0,0,0));
