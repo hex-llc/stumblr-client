@@ -1,5 +1,19 @@
 @import '~bootstrap/scss/bootstrap';
 
+@keyframes bouncing {
+  0% {
+    transform: translateY(10px);
+  }
+
+  50% {
+    transform: translateY(12px);
+  }
+
+  100% {
+    transform: translateY(10px);
+  }
+}
+
 body {
   height: calc(calc(100vh) - 56px);
   margin-top: 56px;
@@ -109,12 +123,12 @@ form {
 }
 
 .blog-container {
+  box-sizing: border-box;
   display: flex;
-  justify-content: stretch;
   height: calc(calc(100vh)/2);
+  justify-content: stretch;
   max-height: 450px;
   padding: 40px 10px;
-  box-sizing: border-box;
 
   .blog-profile-pic-frame {
     border-radius: 5px;
@@ -135,8 +149,8 @@ form {
     flex-direction: column;
     justify-content: stretch;
     overflow: hidden;
-    width: calc(calc(100%) - 75px);
     padding: 0;
+    width: calc(calc(100%) - 75px);
 
     .blog-post-header {
       align-items: center;
@@ -146,9 +160,9 @@ form {
       font-size: 14px;
       height: 60px;
       justify-content: space-between;
+      margin: 0;
       padding: 10px 20px;
       width: 100%;
-      margin: 0;
 
       & button {
         padding: 5px;
@@ -156,25 +170,53 @@ form {
     }
 
     .blog-post-title {
+      margin: 0;
       max-height: 75px;
       padding: 5px 20px;
-      margin: 0;
     }
 
     .blog-post-body {
       height: 275px;
+      margin: 0 0 -40px;
       overflow: hidden;
       padding: 10px 20px;
-      margin: 0;
+    }
+
+    .expand-wrapper {
+      align-items: flex-end;
+      background-image: linear-gradient(to top, rgba(255,255,255,1), rgba(0,0,0,0));
+      bottom: 0;
+      display: flex;
+      height: 40px;
+      justify-content: center;
+      position: sticky;
+      width: 100%;
+
+      .expand-button {
+        animation: bouncing 1.5s infinite;
+        background: url('./assets/images/expand.png');
+        background-position: center;
+        background-size: cover;
+        border: 0;
+        height: 20px;
+        opacity: .8;
+        transform: translateY(10px);
+        width: 20px;
+      }
+
+      .expand-button:hover {
+        height: 22px;
+        width: 22px;
+      }
     }
 
     .blog-post-footer {
-      display: flex;
-      justify-content: space-between;
       background-color: #eee;
       color: #bbb;
+      display: flex;
       font-size: 12px;
       height: 40px;
+      justify-content: space-between;
       margin: 0;
       padding: 10px 20px;
       width: 100%;
