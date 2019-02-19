@@ -7,6 +7,7 @@
 // require('./example')
 const authEvents = require('./auth/events.js')
 const blogEvents = require('./blogs/events.js')
+const store = require('./store')
 
 // keep elements hidden which are gonna appear after signin
 $('.after-signin').hide()
@@ -27,11 +28,15 @@ $(() => {
   // clicking on 'Create Blog' button will submit info in form and run 'onCreateBlog'
   $('#blog-form').on('submit', blogEvents.onCreateBlog)
   // fetch user's blogs
-  $('#my-blogs-btn').on('click', blogEvents.onGetUserBlogs)
+  $('#my-blogs-btn').on('click', () => {
+    blogEvents.onGetUserBlogs()
+    store.isInHome = false
+  })
   // fetch all blogs
   $('#home-btn').on('click', () => {
-    $('#my-blogs-btn').show()
     blogEvents.onGetAllBlogs()
+    $('#my-blogs-btn').show()
+    store.isInHome = true
   })
   // clicking on edit button will run function 'onShowBlog' and use the data-id to find the blog._id
   $('.content').on('click', '.blog-edit-btn', blogEvents.onShowBlog)
