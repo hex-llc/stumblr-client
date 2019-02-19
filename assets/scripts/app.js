@@ -29,8 +29,12 @@ $(() => {
   $('#dashboard-btn').on('click', blogEvents.onGetUserBlogs)
   // clicking on edit button will run function 'onShowBlog' and use the data-id to find the blog._id
   $('.content').on('click', '.blog-edit-btn', blogEvents.onShowBlog)
-  // clicking on `Update` button will submit info in form and run function onUpdateBlog
+  // clicking on `Update` button will submit info in form and run function 'onUpdateBlog'
   $('#update-blog-form').on('submit', blogEvents.onUpdateBlog)
+  // clicking on delete button will run function 'onGrabBlogId' to find which blog to delete
+  $('.content').on('click', '.blog-delete-btn', blogEvents.onGrabBlogId)
+  // clicking on `Delete` button will submit ID from 'onGrabBlogId' and run function 'onDeleteBlog'
+  $('#delete-blog-submit-btn').on('click', blogEvents.onDeleteBlog)
 
   // clear forms when sign-up collapsible is hidden
   $('#sign-up-collapsible').on('hidden.bs.collapse', function () {

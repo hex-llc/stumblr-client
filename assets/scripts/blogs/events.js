@@ -3,6 +3,7 @@
 const api = require('./api.js')
 const getFormFields = require('../../../lib/get-form-fields.js')
 const ui = require('./ui.js')
+const store = require('../store.js')
 
 const onGetBlogs = function () {
   api.getAllBlogs()
@@ -27,7 +28,7 @@ const onGetUserBlogs = function () {
 
 const onShowBlog = function (event) {
   event.preventDefault()
-  const dataId = $(this).parent().parent().data('id')
+  const dataId = $(this).parent().parent().parent().data('id')
   api.showBlog(dataId)
     .then(ui.onShowBlogSuccess)
     .catch(ui.onShowBlogError)
@@ -38,8 +39,22 @@ const onUpdateBlog = function (event) {
   const data = getFormFields(event.target)
   api.updateBlog(data)
     .then(ui.onUpdateBlogSuccess)
-    .then(() => onGetUserBlogs())
+    .then(onGetUserBlogs)
     .catch(ui.onUpdateBlogError)
+}
+
+const onGrabBlogId = function (event) {
+  event.preventDefault()
+  const dataId = $(this).parent().parent().parent().data('id')
+  store.user.delete = dataId
+}
+
+const onDeleteBlog = function (event) {
+  event.preventDefault()
+  api.deleteBlog(store.user.delete)
+    .then(ui.onDeleteBlogSuccess)
+    .then(onGetUserBlogs)
+    .catch(ui.onDeleteBlogFailure)
 }
 
 module.exports = {
@@ -47,5 +62,7 @@ module.exports = {
   onCreateBlog,
   onGetUserBlogs,
   onShowBlog,
-  onUpdateBlog
+  onUpdateBlog,
+  onGrabBlogId,
+  onDeleteBlog
 }

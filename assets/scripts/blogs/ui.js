@@ -11,7 +11,7 @@ const onGetAllBlogsSuccess = (responseData) => {
 }
 
 const onGetAllBlogsError = () => {
-  $('#auth-message').html('Something went wrong and we can\'t get all blogs, sorry!')
+  $('#auth-message-failure').html('Something went wrong and we can\'t get all blogs, sorry!')
 }
 
 const onCreateBlogSuccess = () => {
@@ -22,7 +22,7 @@ const onCreateBlogSuccess = () => {
 
 const onCreateBlogFailure = () => {
   $('#create-blog-failure').html('<P>Make sure you have a <strong>title</strong> and a<strong> body</strong>!</p>').fadeIn(500)
-  setTimeout(() => $('#auth-message-success').fadeOut(500), 2000)
+  setTimeout(() => $('#create-blog-failure').fadeOut(500), 1300)
 }
 
 const onGetUserBlogsSuccess = (responseData) => {
@@ -32,7 +32,8 @@ const onGetUserBlogsSuccess = (responseData) => {
 }
 
 const onGetUserBlogsError = () => {
-  $('#auth-message').html('Something went wrong and we can\'t get your blogs, sorry!')
+  $('#auth-message-failure').html('Something went wrong and we can\'t get your blogs, sorry!').fadeIn(500)
+  setTimeout(() => $('#auth-message-failure').fadeOut(500), 2000)
 }
 
 const onShowBlogSuccess = (responseData) => {
@@ -53,7 +54,20 @@ const onUpdateBlogSuccess = () => {
 }
 
 const onUpdateBlogError = () => {
-  $('#auth-message').html('Something went wrong and we can\'t update your blog, sorry!')
+  $('#update-blog-failure').html('<P>Make sure you have a <strong>title</strong> and a<strong> body</strong>!</p>').fadeIn(500)
+  setTimeout(() => $('#update-blog-failure').fadeOut(500), 1300)
+}
+
+const onDeleteBlogSuccess = () => {
+  $('#auth-message-success').html('<P>Your blog has been <strong>removed!</strong></p>').fadeIn(500)
+  setTimeout(() => $('#auth-message-success').fadeOut(500), 2000)
+  $('#delete-blog').modal('hide')
+}
+
+const onDeleteBlogError = () => {
+  $('#auth-message-failure').html('Something went wrong and we can\'t update your blog, sorry!').fadeIn(500)
+  setTimeout(() => $('auth-message-failure').fadeOut(500), 2000)
+  $('#delete-blog').modal('hide')
 }
 
 module.exports = {
@@ -66,5 +80,7 @@ module.exports = {
   onShowBlogSuccess,
   onShowBlogError,
   onUpdateBlogSuccess,
-  onUpdateBlogError
+  onUpdateBlogError,
+  onDeleteBlogSuccess,
+  onDeleteBlogError
 }
