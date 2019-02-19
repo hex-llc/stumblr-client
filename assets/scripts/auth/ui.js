@@ -50,7 +50,7 @@ const onSignOutSuccess = () => {
   setTimeout(() => {
     $('.before-signin').fadeIn(200)
   }, 500)
-  $('.after-signin').fadeOut(500)
+  $('.after-signin, #home-btn').fadeOut(500)
   $('#sign-up-collapsible').collapse('hide')
   $('#greet-message').text('')
 }
