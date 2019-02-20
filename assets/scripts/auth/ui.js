@@ -22,7 +22,7 @@ const onSignInSuccess = (responseData) => {
   $('#sign-in').trigger('reset')
   $('#greet-message').html('<p> > Hello, <strong><em>' + store.user.username + '</em></strong></p>')
   $('#modal-title').html(`What would you like to share, <strong><em>${store.user.username}</em></strong>?`)
-  $('.create-comment-form').show()
+  $('.create-comment-form').removeAttr('hidden')
 }
 
 const onSignInFailure = () => {
@@ -55,6 +55,7 @@ const onSignOutSuccess = () => {
   $('#sign-up-collapsible').collapse('hide')
   $('#greet-message').text('')
   $('.create-comment-form').hide()
+  $('.create-comment-form').attr('hidden', 'true')
 }
 
 const onSignOutFailure = () => {

@@ -14,6 +14,11 @@ const onGetAllBlogsSuccess = (responseData) => {
   //   $('.container').fadeIn(200)
   // }, 500)
   $('#home-btn').hide()
+  // If user is signed in and created a comment, this code keeps comment form
+  // visible
+  if (store.user) {
+    $('.create-comment-form').removeAttr('hidden')
+  }
 }
 
 const onGetAllBlogsError = () => {
@@ -42,6 +47,11 @@ const onGetUserBlogsSuccess = (responseData) => {
   // }, 500)
   $('#my-blogs-btn').hide()
   $('#home-btn').show()
+  // If user is signed in and created a comment, this code keeps comment form
+  // visible
+  if (store.user) {
+    $('.create-comment-form').removeAttr('hidden')
+  }
 }
 
 const onGetUserBlogsError = () => {
