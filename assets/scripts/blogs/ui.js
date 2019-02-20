@@ -57,7 +57,6 @@ const onShowBlogSuccess = (responseData) => {
 }
 
 const onShowBlogError = () => {
-  console.log('Error on show!')
 }
 
 const onUpdateBlogSuccess = () => {
