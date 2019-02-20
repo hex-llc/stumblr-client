@@ -180,13 +180,34 @@ form {
       margin: 0 0 -40px;
       overflow: hidden;
       padding: 10px 20px;
+      z-index: -1;
     }
 
-    .blog-comments-title{
+    .comment-post {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 5px 5px 6px #ddd;
+      margin: 15px;
+      padding: 5px;
+    }
+
+    .comment-post-profile {
+      justify-content: flex-start;
+      padding: 5px;
+    }
+
+    .comment-post-edit {
+      align-items: flex-start;
+      justify-content: center;
+      padding: 5px;
+    }
+
+    .blog-comments-title {
       text-align: center;
     }
 
     .blog-commment-profile-pic {
+      background-color: #add;
       border-radius: 100%;
       height: 45px;
     }

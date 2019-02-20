@@ -12,16 +12,19 @@
           <h5 class="blog-comments-title">Comments</h5>
           {{#each blog.comments as |comment|}}
           <div class="row comment-post">
-            <div class="comment-post-profile">
+            <div class="col-1 comment-post-profile">
               <img class="blog-commment-profile-pic" src="./assets/images/default_profile.png"/>
             </div>
-            <div class="comment-post-content">
+            <div class="col-10 comment-post-content">
               <div class="comment-post-owner">
-                @{{comment.owner.username}}
+                <strong><em>@{{comment.owner.username}}</em></strong>
               </div>
               <div class="comment-post-body">
                 {{comment.text}}
               </div>
+            </div>
+            <div class="col-1 comment-post-edit">
+              <button class="btn comment-options-btn" type="button"><img class="icon-style" src="./assets/images/more.png" alt="comment options"/></button>
             </div>
           </div>
           {{/each}}
