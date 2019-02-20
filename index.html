@@ -191,5 +191,54 @@
         </div>
       </div>
 
+<!-- UPDATE COMMENT MODAL -->
+
+      <div class="modal fade" id="update-comment" tabindex="-1" role="dialog" aria-labelledby="update-blog-label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 id="update-comment-modal-title" class="modal-title">Edit comment</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div id="update-comment-failure" class="alert alert-danger" role="alert">
+              <!-- MESSAGES & ALERTS -->
+            </div>
+            <form id ="update-comment-form">
+              <div class="modal-body-create-comment">
+                <input id="update-comment-text-input" class="title-input" type="text" name="comment[text]">
+              </div>
+              <div class="modal-footer">
+                <button id="update-comment-submit-btn" type="submit" class="btn btn-success btn-block">Update</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+<!-- DELETE COMMENT MODAL -->
+
+      <div class="modal fade" id="delete-comment" tabindex="-1" role="dialog" aria-labelledby="delete-blog-label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="delete-comment-modal-title">Remove my comment</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div id="delete-comment-failure" class="alert alert-danger" role="alert">
+              <!-- MESSAGES & ALERTS -->
+            </div>
+            <div class="modal-body">
+              Deleting a comment will remove it forever. Are you sure you want to delete?
+            </div>
+            <div class="modal-footer">
+              <button id="delete-comment-submit-btn" type="button" class="btn btn-danger btn-block">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </body>
 </html>
