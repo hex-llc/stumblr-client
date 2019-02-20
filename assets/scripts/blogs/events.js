@@ -5,9 +5,18 @@ const getFormFields = require('../../../lib/get-form-fields.js')
 const ui = require('./ui.js')
 const store = require('../store.js')
 
-const onGetAllBlogs = function () {
+const onGetAllBlogs = function (pageChange) {
   api.getAllBlogs()
     .then(ui.onGetAllBlogsSuccess)
+    // .then(() => {
+    //   if (pageChange === true) {
+    //     $('.on-action').show().html(`<h1> Home Page </h1>`)
+    //     setTimeout(() => { $('.on-action').fadeOut(500) }, 500)
+    //   } else if (pageChange === 'sign out') {
+    //     $('.on-action').show().html(`<h1> 👋 Bye! </h1>`)
+    //     setTimeout(() => { $('.on-action').fadeOut(500) }, 500)
+    //   }
+    // })
     .catch(ui.onGetAllBlogsError)
 }
 
@@ -18,17 +27,23 @@ const onCreateBlog = function (event) {
     .then(ui.onCreateBlogSuccess)
     .then(() => {
       if (store.isInHome) {
-        onGetAllBlogs()
+        onGetAllBlogs(false)
       } else {
-        onGetUserBlogs()
+        onGetUserBlogs(false)
       }
     })
     .catch(ui.onCreateBlogFailure)
 }
 
-const onGetUserBlogs = function () {
+const onGetUserBlogs = function (pageChange) {
   api.getUserBlogs()
     .then(ui.onGetUserBlogsSuccess)
+    // .then(() => {
+    //   if (pageChange) {
+    //     $('.on-action').show().html(`<h1> My Posts </h1>`)
+    //     setTimeout(() => { $('.on-action').fadeOut(500) }, 500)
+    //   }
+    // })
     .catch(ui.onGetUserBlogsError)
 }
 

@@ -4,6 +4,7 @@ const api = require('./api.js')
 const getFormFields = require('../../../lib/get-form-fields.js')
 const ui = require('./ui.js')
 const store = require('../store.js')
+const blogEvents = require('../blogs/events.js')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -53,6 +54,7 @@ const onSignOut = function (event) {
   event.preventDefault()
   api.signOut()
     .then(ui.onSignOutSuccess)
+    .then(() => { blogEvents.onGetAllBlogs('sign out') })
     .catch(ui.onSignOutFailure)
 }
 

@@ -8,6 +8,11 @@ const onGetAllBlogsSuccess = (responseData) => {
   store.blogs = responseData.blogs
   const allBlogsHtml = allBlogsTemplate({ blogs: store.blogs.reverse() })
   $('.content').html(allBlogsHtml)
+  // $('.container').hide()
+  // setTimeout(() => {
+  //   $('.content').html(allBlogsHtml)
+  //   $('.container').fadeIn(200)
+  // }, 500)
   $('#home-btn').hide()
 }
 
@@ -30,6 +35,11 @@ const onGetUserBlogsSuccess = (responseData) => {
   store.user.blogs = responseData.blogs
   const userBlogsHtml = allUserBlogsTemplate({ blogs: store.user.blogs.reverse() })
   $('.content').html(userBlogsHtml)
+  // $('.container').hide()
+  // setTimeout(() => {
+  //   $('.content').html(userBlogsHtml)
+  //   $('.container').fadeIn(200)
+  // }, 500)
   $('#my-blogs-btn').hide()
   $('#home-btn').show()
 }

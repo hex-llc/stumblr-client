@@ -11,7 +11,7 @@ const commentEvents = require('./comments/events.js')
 const store = require('./store')
 
 // keep elements hidden which are gonna appear after signin
-$('.after-signin').hide()
+$('.after-signin, .on-action').hide()
 $('.alert').hide()
 $('#home-btn').hide()
 
@@ -58,5 +58,18 @@ $(() => {
     $(this).find('form').trigger('reset')
   })
 
+  $('body').on('click', '.expand-button', (event) => {
+    const postID = event.target.dataset.id
+    const postBody = $(`[data-id=${postID}]`).children('.blog-post-body')
+    const expandButtonWrapper = $(`[data-id=${postID}]`).children('.expand-wrapper').children('div')
+
+    if (postBody.hasClass('shrink-post')) {
+      postBody.toggleClass('shrink-post', false)
+      expandButtonWrapper.addClass('rotate-button')
+    } else {
+      postBody.toggleClass('shrink-post', true)
+      expandButtonWrapper.removeClass('rotate-button')
+    }
+  })
   $('.content').on('submit', '.create-comment-form', commentEvents.onCreateComment)
 })

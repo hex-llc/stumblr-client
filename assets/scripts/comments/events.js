@@ -21,7 +21,7 @@ const onCreateComment = function (event) {
   console.log(data)
   api.createComment(data)
     .then(ui.onCreateCommentSuccess)
-    .then(blogEvents.onGetAllBlogs)
+    .then(() => blogEvents.onGetAllBlogs(false))
     .catch(ui.onCreateCommentFailure)
 }
 
