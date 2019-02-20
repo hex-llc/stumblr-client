@@ -4,6 +4,7 @@ const api = require('./api.js')
 const getFormFields = require('../../../lib/get-form-fields.js')
 const ui = require('./ui.js')
 const store = require('../store.js')
+const blogEvents = require('../blogs/events.js')
 
 const onGetAllComments = function () {
   api.getAllComments()
@@ -13,10 +14,14 @@ const onGetAllComments = function () {
 
 const onCreateComment = function (event) {
   event.preventDefault()
+  const blogId = $(event.target).children('button').data('id')
   const data = getFormFields(event.target)
+  data.comment.blog = blogId
+  data.comment.owner = store.user
+  console.log(data)
   api.createComment(data)
     .then(ui.onCreateCommentSuccess)
-    .then(onGetAllComments)
+    .then(blogEvents.onGetAllBlogs)
     .catch(ui.onCreateCommentFailure)
 }
 

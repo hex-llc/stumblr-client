@@ -7,6 +7,7 @@
 // require('./example')
 const authEvents = require('./auth/events.js')
 const blogEvents = require('./blogs/events.js')
+const commentEvents = require('./comments/events.js')
 const store = require('./store')
 
 // keep elements hidden which are gonna appear after signin
@@ -56,4 +57,6 @@ $(() => {
     // clear forms when modal is hidden
     $(this).find('form').trigger('reset')
   })
+
+  $('.content').on('submit', '.create-comment-form', commentEvents.onCreateComment)
 })
