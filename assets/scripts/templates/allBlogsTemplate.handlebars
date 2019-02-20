@@ -5,10 +5,10 @@
       <img class="blog-profile-pic" src="./assets/images/default_profile.png"/>
     </div>
 
-    <div data-id='{{blog._id}}' class="blog-post shadow">
+    <div data-id="{{blog._id}}" class="blog-post shadow">
       <div class="blog-post-header">@{{blog.owner.username}}</div>
-      <h3 class="blog-post-title">{{blog.title}}</h3>
-      <div class="blog-post-body">
+      <h3 class="blog-post-title">{{limit blog.title 100}}</h3>
+      <div class="blog-post-body" data-id="{{blog._id}}">
         <p>{{blog.body}}</p>
         <div class="container blog-post-comment-container">
           {{#each blog.comments as |comment|}}
@@ -30,7 +30,8 @@
           </div>
           {{/each}}
           <div class="blog-comments-title">
-            <button class="btn btn-outline-primary add-comment-btn btn-lg" type="button" data-toggle="modal" data-target="#add-comment">
+            <input class="comment-input" type="text" name="comment[text]" placeholder="Add a comment here">
+            <button  data-id="{{blog._id}}" class="btn btn-outline-primary add-comment-btn btn-sm" type="button" data-toggle="modal" data-target="#add-comment">
               <img class="icon-style" src="./assets/images/chat.png" alt="add comment"/> Comment</button>
           </div>
         </div>

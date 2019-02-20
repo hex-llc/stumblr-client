@@ -187,7 +187,7 @@ form {
 
     .blog-post-body {
       flex-grow: 1;
-      max-height: 275px;
+      // max-height: 275px;
       margin: 0 0 -40px;
       overflow: hidden;
       padding: 10px 20px;
@@ -214,8 +214,14 @@ form {
     }
 
     .blog-comments-title {
-      align-items: flex-end;
+      display: flex;
+      justify-content: space-around;
+      align-items: stretch;
       text-align: center;
+    }
+
+    .comment-input {
+      flex-grow: 1;
     }
 
     .blog-commment-profile-pic {
@@ -254,9 +260,7 @@ form {
 
     .blog-post-footer {
       background-color: #eee;
-      // border-top: 3px solid #343a40;
       color: #999;
-      // color: #343a40;
       display: flex;
       font-size: 12px;
       height: 40px;
