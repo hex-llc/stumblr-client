@@ -11,11 +11,14 @@ const onGetAllCommentsSuccess = (responseData) => {
 
 const onCreateCommentSuccess = (responseData) => {
   $('.create-comment-form').trigger('reset')
+  $('#auth-message-success').html('<P>Your comment has <strong>successfully posted!</strong>.</p>').fadeIn(500)
+  setTimeout(() => $('#auth-message-success').fadeOut(500), 2000)
 }
 
 const onCreateCommentFailure = (responseData) => {
   $('.create-comment-form').trigger('reset')
-  // TO DO: There should be a failure message...
+  $('#auth-message-failure').html('<P>Your comment has <strong>failed!</strong>. Please try again</p>').fadeIn(500)
+  setTimeout(() => $('#auth-message-failure').fadeOut(500), 2000)
 }
 
 module.exports = {
