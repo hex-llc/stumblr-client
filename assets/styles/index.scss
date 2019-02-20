@@ -95,7 +95,8 @@ form {
   margin: 10px auto;
   opacity: .9;
   padding: 0;
-  position: absolute;
+  position: fixed;
+  top: 70px;
   width: 100%;
   z-index: 9;
 
@@ -212,10 +213,6 @@ form {
       align-items: flex-start;
       justify-content: center;
       padding: 5px;
-    }
-
-    .create-comment-form {
-      display: none;
     }
 
     .blog-comments-title {

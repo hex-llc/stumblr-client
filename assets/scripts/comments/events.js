@@ -26,6 +26,7 @@ const onCreateComment = function (event) {
   data.comment.blog = blogId
   store.blogId = blogId
   data.comment.owner = store.user
+  data.blog = store.blogId
   api.createComment(data)
     .then(ui.onCreateCommentSuccess)
     .then(onGetAllComments)
