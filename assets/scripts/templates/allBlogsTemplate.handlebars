@@ -2,7 +2,7 @@
   <div class="blog-container">
 
     <div class="blog-profile-pic-frame shadow">
-      <img class="blog-profile-pic" src="./assets/images/default_profile.png"/>
+      <img class="blog-profile-pic" src="/public/images/default_profile.png"/>
     </div>
 
     <div data-id="{{blog._id}}" class="blog-post shadow">
@@ -14,7 +14,7 @@
           {{#each blog.comments as |comment|}}
           <div class="row comment-post">
             <div class="col-1 comment-post-profile">
-              <img class="blog-commment-profile-pic" src="./assets/images/default_profile.png"/>
+              <img class="blog-commment-profile-pic" src="/public/images/default_profile.png"/>
             </div>
             <div class="col-10 comment-post-content">
               <div class="comment-post-owner">
@@ -25,14 +25,16 @@
               </div>
             </div>
             <div class="col-1 comment-post-edit">
-              <button class="btn comment-options-btn" type="button"><img class="icon-style" src="./assets/images/more.png" alt="comment options"/></button>
+              <button class="btn comment-options-btn" type="button"><img class="icon-style" src="/public/images/more.png" alt="comment options"/></button>
             </div>
           </div>
           {{/each}}
           <div class="blog-comments-title">
-            <input class="comment-input" type="text" name="comment[text]" placeholder="Add a comment here">
-            <button  data-id="{{blog._id}}" class="btn btn-outline-primary add-comment-btn btn-sm" type="button" data-toggle="modal" data-target="#add-comment">
-              <img class="icon-style" src="./assets/images/chat.png" alt="add comment"/> Comment</button>
+            <form class='create-comment-form'>
+              <input class="comment-input" type="text" name="comment[text]" placeholder="Add a comment here">
+              <button data-id="{{blog._id}}" class="btn btn-outline-primary add-comment-btn btn-sm" type="submit" data-toggle="modal" data-target="#add-comment">
+                <img class="icon-style" src="/public/images/chat.png" alt="add comment"/> Comment</button>
+            </form>
           </div>
         </div>
       </div>
