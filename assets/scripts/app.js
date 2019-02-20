@@ -47,6 +47,16 @@ $(() => {
   $('.content').on('click', '.blog-delete-btn', blogEvents.onGrabBlogId)
   // clicking on `Delete` button will submit ID from 'onGrabBlogId' and run function 'onDeleteBlog'
   $('#delete-blog-submit-btn').on('click', blogEvents.onDeleteBlog)
+  // clicking `Comment` will run function `onCreateComment` to create a comment
+  $('.content').on('submit', '.create-comment-form', commentEvents.onCreateComment)
+  // clicking `Edit` will run function `onShowComment` to find which comment to edit
+  $('.content').on('click', '.comment-edit-btn', commentEvents.onShowComment)
+  // clicking on `Update` button will submit info in form and run function 'onUpdateComment'
+  $('#update-comment-form').on('submit', commentEvents.onUpdateComment)
+  // clicking `Delete` will run function `onGrabCommentId` to find id which comment to delete
+  $('.content').on('click', '.comment-delete-btn', commentEvents.onGrabCommentId)
+  // clicking on `Delete` button will submit ID from 'onGrabCommentId' and run function 'onDeleteComment'
+  $('#delete-comment-submit-btn').on('click', commentEvents.onDeleteComment)
 
   // clear forms when sign-up collapsible is hidden
   $('#sign-up-collapsible').on('hidden.bs.collapse', function () {
@@ -71,5 +81,4 @@ $(() => {
       expandButtonWrapper.removeClass('rotate-button')
     }
   })
-  $('.content').on('submit', '.create-comment-form', commentEvents.onCreateComment)
 })
