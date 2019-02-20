@@ -4,12 +4,19 @@ const api = require('./api.js')
 const getFormFields = require('../../../lib/get-form-fields.js')
 const ui = require('./ui.js')
 const store = require('../store.js')
-const blogEvents = require('../blogs/events.js')
+const blogApi = require('../blogs/api.js')
 
 const onGetAllComments = function () {
-  api.getAllComments()
+  const blogId = store.blogId
+  blogApi.showBlog(blogId)
     .then(ui.onGetAllCommentsSuccess)
     .catch(ui.onGetAllCommentsFailure)
+}
+
+const onGetBlogComments = function () {
+  api.getBlogComments()
+    .then(ui.onGetBlogCommentsSuccess)
+    .catch(ui.onGetBlogCommentsFailure)
 }
 
 const onCreateComment = function (event) {
@@ -17,11 +24,11 @@ const onCreateComment = function (event) {
   const blogId = $(event.target).children('button').data('id')
   const data = getFormFields(event.target)
   data.comment.blog = blogId
+  store.blogId = blogId
   data.comment.owner = store.user
-  console.log(data)
   api.createComment(data)
     .then(ui.onCreateCommentSuccess)
-    .then(() => blogEvents.onGetAllBlogs(false))
+    .then(onGetAllComments)
     .catch(ui.onCreateCommentFailure)
 }
 
@@ -48,5 +55,6 @@ module.exports = {
   onCreateComment,
   onShowComment,
   onUpdateComment,
-  onDeleteComment
+  onDeleteComment,
+  onGetBlogComments
 }

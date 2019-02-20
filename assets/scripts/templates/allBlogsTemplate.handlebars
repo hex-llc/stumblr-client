@@ -10,7 +10,7 @@
       <h3 class="blog-post-title">{{limit blog.title 100}}</h3>
       <div class="blog-post-body shrink-post">
         <p>{{blog.body}}</p>
-        <div class="container blog-post-comment-container">
+        <div id="{{blog._id}}" class="container blog-post-comment-container">
           {{#each blog.comments as |comment|}}
           <div class="row comment-post">
             <div class="col-1 comment-post-profile">
