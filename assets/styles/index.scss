@@ -6,7 +6,7 @@
   }
 
   50% {
-    transform: translateY(12px);
+    transform: translateY(15px);
   }
 
   100% {
@@ -15,6 +15,9 @@
 }
 
 body {
+  background-attachment: fixed;
+  background-image: linear-gradient(to bottom right, purple, orange);
+  background-repeat: no-repeat;
   height: calc(calc(100vh) - 56px);
   margin-top: 56px;
   padding: 0;
@@ -26,10 +29,11 @@ body {
 }
 
 .sidebar {
+  background-color: #fff;
   border: 1px solid #bbb;
-  border-radius: 10px 0;
+  border-radius: 20px 0;
   bottom: 0;
-  box-shadow: 5px 5px 6px #ddd;
+  // box-shadow: 5px 5px 6px #ddd;
   height: auto;
   margin: 40px 0;
   padding: 20px;
@@ -131,20 +135,24 @@ form {
   padding: 40px 10px;
 
   .blog-profile-pic-frame {
+    background-color: #fff;
     border-radius: 5px;
     height: 75px;
     margin: 15px;
+    padding-top: 5px;
+    text-align: center;
     width: 75px;
 
     .blog-profile-pic {
-      height: 65px;
-      margin: auto;
-      width: 65px;
+      max-width: 90%;
+      // margin: auto;
+      // width: 65px;
     }
   }
 
   .blog-post {
-    border-radius: 5px;
+    background-color: #fff;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: stretch;
@@ -155,7 +163,9 @@ form {
     .blog-post-header {
       align-items: center;
       background-color: #eee;
+      // border-bottom: 3px solid #343a40;
       color: #777;
+      // color: #343a40;
       display: flex;
       font-size: 14px;
       height: 60px;
@@ -244,7 +254,9 @@ form {
 
     .blog-post-footer {
       background-color: #eee;
-      color: #bbb;
+      // border-top: 3px solid #343a40;
+      color: #999;
+      // color: #343a40;
       display: flex;
       font-size: 12px;
       height: 40px;
