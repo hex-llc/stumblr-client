@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Stumblr.</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,6 +12,184 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <div class="auth-message">
+        <div id="auth-message-success" class="alert alert-success shadow-lg" role="alert">
+          <!-- MESSAGES & ALERTS -->
+        </div>
+        <div id="auth-message-failure" class="alert alert-danger shadow-lg" role="alert">
+          <!-- MESSAGES & ALERTS -->
+        </div>
+      </div>
+      <nav class="navbar fixed-top navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Stumblr.</a>
+        <div id="auth-options">
+<!-- MENU-BUTTON -->
+          <button id="menu-button" class="btn btn-dark after-signin" type="button" data-toggle="modal" data-target="#change-password-modal"><img class="icon-style" src="./assets/images/menu.png" alt="menu button"/></button>
+<!-- SIGN-OUT-BUTTON -->
+          <button id="sign-out" class="btn btn-dark after-signin" type="button"><img class="icon-style" src="./assets/images/exit.png" alt="sign out button"/></button>
+        </div>
+      </nav>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-9 content">
+<!-- MAIN CONTENT -->
+<!-- END MAIN CONTENT  -->
+
+<!-- SIDEBAR -->
+          </div>
+          <div class="col-3">
+            <div id="auth-box" class="sidebar shadow">
+              <div id="greet-message" class="greet-message"></div>
+              <div class="menu-buttons">
+                <button class="btn btn-outline-dark after-signin" type="button" data-toggle="modal" data-target="#create-blog">Create Blog</button>
+                <button id="my-blogs-btn" class="btn btn-outline-dark after-signin">My Blogs</button>
+                <button id="home-btn" class="btn btn-outline-dark">Home</button>
+                <button id="friends-btn" class="btn btn-outline-dark after-signin">Friends</button>
+              </div>
+
+              <form id="sign-in" class="before-signin">
+                <h4>Login</h4>
+                <input type="text" name="credentials[email]" placeholder="email or username">
+                <input type="password" name="credentials[password]" placeholder="password">
+                <button type="submit">Login</button>
+              </form>
+<!-- END SIDEBAR -->
+
+
+<!-- DONT PLACE ANYTHING BETWEEN HERE AND SIGN-UP-END -->
+<!-- SIGN-UP-LINK -->
+                <p>
+                  <a id="sign-up-link" class="btn sign-up-link before-signin" data-toggle="collapse" href="#sign-up-collapsible" role="button" aria-expanded="false" aria-controls="sign-up-collapsible">Don't have an account? Sign up here.</a>
+                </p>
+                <div class="row before-signin">
+                  <div class="col">
+                    <div class="collapse multi-collapse" id="sign-up-collapsible">
+                      <div class="card card-body">
+                        <form id="sign-up">
+<!-- SIGN-UP-FORM -->
+                          <h4>Sign Up</h4>
+                          <input type="text" name="credentials[username]" placeholder="username">
+                          <input type="email" name="credentials[email]" placeholder="email">
+                          <input type="password" name="credentials[password]" placeholder="password">
+                          <input type="password" name="credentials[password_confirmation]" placeholder="confirm password">
+                          <button type="submit">Register</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+
+
+<!-- CHANGE PASSWORD MODAL -->
+
+          <div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="exampleModalLabel">Change Password Form</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div id="chngpw-message-failure" class="alert alert-danger shadow-sm" role="alert">
+                    <!-- MESSAGES & ALERTS -->
+                  </div>
+                  <form id="change-pw">
+
+                    <input type="password" name="passwords[old]" placeholder="old password">
+                    <input type="password" name="passwords[new]" placeholder="new password">
+                    <hr/>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<!-- CREATE BLOG MODAL -->
+
+      <div class="modal fade" id="create-blog" tabindex="-1" role="dialog" aria-labelledby="create-blog-label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 id="modal-title" class="modal-title"></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div id="create-blog-failure" class="alert alert-danger" role="alert">
+              <!-- MESSAGES & ALERTS -->
+            </div>
+            <form id ="blog-form">
+              <div class="modal-body-create-blog">
+                  <input id="title-input" class="title-input" type="text" name="blog[title]" placeholder="Title here, please.">
+                  <textarea id="content-input" class="content-input" name="blog[body]" rows="10" cols="100" placeholder="What's on your mind?"></textarea>
+              </div>
+              <div class="modal-footer">
+                <button id="create-blog-submit-btn" type="submit" class="btn btn-success btn-block">Create</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+<!-- UPDATE BLOG MODAL -->
+
+      <div class="modal fade" id="update-blog" tabindex="-1" role="dialog" aria-labelledby="update-blog-label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 id="update-modal-title" class="modal-title"></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div id="update-blog-failure" class="alert alert-danger" role="alert">
+              <!-- MESSAGES & ALERTS -->
+            </div>
+            <form id ="update-blog-form">
+              <div class="modal-body-create-blog">
+                  <input id="update-title-input" class="title-input" type="text" name="blog[title]">
+                  <textarea id="update-content-input" class="content-input" name="blog[body]" rows="10" cols="100"></textarea>
+              </div>
+              <div class="modal-footer">
+                <button id="update-blog-submit-btn" type="submit" class="btn btn-success btn-block">Update</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+<!-- DELETE BLOG MODAL -->
+
+      <div class="modal fade" id="delete-blog" tabindex="-1" role="dialog" aria-labelledby="delete-blog-label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="delete-modal-title">Remove my blog post</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div id="delete-blog-failure" class="alert alert-danger" role="alert">
+              <!-- MESSAGES & ALERTS -->
+            </div>
+            <div class="modal-body">
+              Deleting a blog post will remove it forever. Are you sure you want to delete?
+            </div>
+            <div class="modal-footer">
+              <button id="delete-blog-submit-btn" type="button" class="btn btn-danger btn-block">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </body>
 </html>
