@@ -28,8 +28,14 @@
                 {{comment.text}}
               </div>
             </div>
-            <div class="col-1 comment-post-edit">
-              <button class="btn comment-options-btn" type="button"><img class="icon-style" src="/public/images/more.png" alt="comment options"/></button>
+            <div class="col-1 comment-post-edit btn-group">
+              <button type="button" class="btn comment-options-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img class="icon-style" src="/public/images/more.png" alt="comment options"/>
+              </button>
+              <div data-id="{{comment._id}}" class="dropdown-menu dropdown-menu-right">
+                <button class="comment-edit-btn dropdown-item" type="button" data-toggle="modal" data-target="#update-comment">Edit</button>
+                <button class="comment-delete-btn dropdown-item" type="button" data-toggle="modal" data-target="#delete-comment">Delete</button>
+              </div>
             </div>
           </div>
           {{/each}}
