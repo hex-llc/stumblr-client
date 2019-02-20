@@ -12,7 +12,7 @@
         </div>
       </div>
       <h3 class="blog-post-title">{{limit blog.title 100}}</h3>
-      <div class="blog-post-body" data-id="{{blog._id}}">
+      <div class="blog-post-body shrink-post">
         <p>{{blog.body}}</p>
         <div class="container blog-post-comment-container">
           {{#each blog.comments as |comment|}}
@@ -40,7 +40,7 @@
           </div>
         </div>
       </div>
-      <div class="expand-wrapper"><button class="expand-button"></button></div>
+      <div class="expand-wrapper"><div><button class="expand-button"  data-id="{{blog._id}}"></button></div></div>
       <div class="blog-post-footer">
         <div class="blog-footer-update-time">
           Created on: {{formatDate blog.createdAt}}
