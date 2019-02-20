@@ -1,0 +1,18 @@
+{{#each blog.comments as |comment|}}
+<div class="row comment-post">
+  <div class="col-1 comment-post-profile">
+    <img class="blog-commment-profile-pic" src="/public/images/default_profile.png"/>
+  </div>
+  <div class="col-10 comment-post-content">
+    <div class="comment-post-owner">
+      <strong><em>@{{comment.owner.username}}</em></strong>
+    </div>
+    <div class="comment-post-body">
+      {{comment.text}}
+    </div>
+  </div>
+  <div class="col-1 comment-post-edit">
+    <button class="btn comment-options-btn" type="button"><img class="icon-style" src="/public/images/more.png" alt="comment options"/></button>
+  </div>
+</div>
+{{/each}}
