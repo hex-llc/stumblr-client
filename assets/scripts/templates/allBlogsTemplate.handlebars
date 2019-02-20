@@ -1,7 +1,9 @@
 {{#each blogs as |blog|}}
   <div class="blog-container">
 
-    <div class="blog-profile-pic-frame shadow-sm"><img class="blog-profile-pic" src="./assets/images/default_profile.png"/></div>
+    <div class="blog-profile-pic-frame shadow">
+      <img class="blog-profile-pic" src="./assets/images/default_profile.png"/>
+    </div>
 
     <div data-id='{{blog._id}}' class="blog-post shadow">
       <div class="blog-post-header">@{{blog.owner.username}}</div>
@@ -9,7 +11,6 @@
       <div class="blog-post-body">
         <p>{{blog.body}}</p>
         <div class="container blog-post-comment-container">
-          <h5 class="blog-comments-title">Comments</h5>
           {{#each blog.comments as |comment|}}
           <div class="row comment-post">
             <div class="col-1 comment-post-profile">
@@ -28,10 +29,21 @@
             </div>
           </div>
           {{/each}}
+          <div class="blog-comments-title">
+            <button class="btn btn-outline-primary add-comment-btn btn-lg" type="button" data-toggle="modal" data-target="#add-comment">
+              <img class="icon-style" src="./assets/images/chat.png" alt="add comment"/> Comment</button>
+          </div>
         </div>
       </div>
       <div class="expand-wrapper"><button class="expand-button"></button></div>
-      <div class="blog-post-footer">Created on: {{formatDate blog.createdAt}}</div>
+      <div class="blog-post-footer">
+        <div class="blog-footer-update-time">
+          Created on: {{formatDate blog.createdAt}}
+        </div>
+        <div class="blog-footer-comment-count">
+          Comments: {{blog.commentCount}}
+        </div>
+      </div>
     </div>
 
   </div>

@@ -125,9 +125,9 @@ form {
 .blog-container {
   box-sizing: border-box;
   display: flex;
-  height: calc(calc(100vh)/2);
+  height: auto;
   justify-content: stretch;
-  max-height: 450px;
+  // max-height: 450px;
   padding: 40px 10px;
 
   .blog-profile-pic-frame {
@@ -176,11 +176,12 @@ form {
     }
 
     .blog-post-body {
-      height: 275px;
+      flex-grow: 1;
+      max-height: 275px;
       margin: 0 0 -40px;
       overflow: hidden;
       padding: 10px 20px;
-      z-index: -1;
+      // z-index: -1;
     }
 
     .comment-post {
@@ -203,6 +204,7 @@ form {
     }
 
     .blog-comments-title {
+      align-items: flex-end;
       text-align: center;
     }
 

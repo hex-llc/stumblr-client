@@ -15,7 +15,10 @@
       <div class="blog-post-body">
         <p>{{blog.body}}</p>
         <div class="container blog-post-comment-container">
-          <h5 class="blog-comments-title">Comments</h5>
+          <div class="blog-comments-title">
+            <button class="btn btn-outline-primary add-comment-btn btn-lg" type="button" data-toggle="modal" data-target="#add-comment">
+              <img class="icon-style" src="./assets/images/chat.png" alt="add comment"/> Comment</button>
+          </div>
           {{#each blog.comments as |comment|}}
           <div class="row comment-post">
             <div class="col-1 comment-post-profile">
@@ -37,7 +40,14 @@
         </div>
       </div>
       <div class="expand-wrapper"><button class="expand-button"></button></div>
-      <div class="blog-post-footer">Created on: {{formatDate blog.createdAt}}</div>
+      <div class="blog-post-footer">
+        <div class="blog-footer-update-time">
+          Created on: {{formatDate blog.createdAt}}
+        </div>
+        <div class="blog-footer-comment-count">
+          Comments: {{blog.commentCount}}
+        </div>
+      </div>
     </div>
 
   </div>
