@@ -1,0 +1,24 @@
+{{#each comments as |comment|}}
+<div class="row comment-post">
+  <div class="col-1 comment-post-profile">
+    <img class="blog-commment-profile-pic" src="/public/images/default_profile.png"/>
+  </div>
+  <div class="col-10 comment-post-content">
+    <div class="comment-post-owner">
+      <strong><em>@{{comment.owner.username}}</em></strong>
+    </div>
+    <div class="comment-post-body">
+      {{comment.text}}
+    </div>
+  </div>
+  <div class="col-1 comment-post-edit btn-group" hidden="true" data-user="{{comment.owner.username}}">
+    <button type="button" class="btn comment-options-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <img class="icon-style" src="/public/images/more.png" alt="comment options"/>
+    </button>
+    <div data-id="{{comment._id}}" data-blog="{{comment.blog}}" class="dropdown-menu dropdown-menu-right">
+      <button class="comment-edit-btn dropdown-item" type="button" data-toggle="modal" data-target="#update-comment">Edit</button>
+      <button class="comment-delete-btn dropdown-item" type="button" data-toggle="modal" data-target="#delete-comment">Delete</button>
+    </div>
+  </div>
+</div>
+{{/each}}

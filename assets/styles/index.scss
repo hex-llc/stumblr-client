@@ -95,7 +95,8 @@ form {
   margin: 10px auto;
   opacity: .9;
   padding: 0;
-  position: absolute;
+  position: fixed;
+  top: 70px;
   width: 100%;
   z-index: 9;
 
@@ -187,10 +188,11 @@ form {
 
     .blog-post-body {
       flex-grow: 1;
-      // max-height: 275px;
       margin: 0 0 -40px;
       overflow: hidden;
       padding: 10px 20px;
+      // height: 275px;
+      transition: height 1s ease;
       // z-index: -1;
     }
 
@@ -242,7 +244,7 @@ form {
 
       .expand-button {
         animation: bouncing 1.5s infinite;
-        background: url('./assets/images/expand.png');
+        background: url('/public/images/expand.png');
         background-position: center;
         background-size: cover;
         border: 0;
@@ -268,6 +270,70 @@ form {
       margin: 0;
       padding: 10px 20px;
       width: 100%;
+    }
+  }
+}
+
+.shrink-post {
+  height: auto;
+  max-height: 275px;
+}
+
+.rotate-button {
+  transform: rotate(180deg) translateY(-20px);
+}
+
+.curtain {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0 , 0, 0, .8);
+  display: flex;
+  z-index: 999;
+  color: white;
+
+  h1 {
+    margin: auto;
+    padding: 100px;
+    background-color: rgba(200, 200, 200, .4);
+    border-radius: 50px;
+  }
+}
+
+.create-comment-form {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+  input {
+    flex-grow: 1;
+  }
+}
+
+.jumbotron {
+  width: 100%;
+  background-color: rgba(0 , 0, 0, .5);
+  border-radius: 0 40px 40px 40px;
+  color: white;
+}
+
+.side-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  margin: 40px 0;
+
+  .profile-image-sidebar-frame {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    .profile-image-sidebar {
+      background-color: rgba(0 , 0, 0, .8);
+      border-radius: 100%;
+      height: 100px;
+      width: 100px;
     }
   }
 }

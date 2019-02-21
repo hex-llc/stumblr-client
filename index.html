@@ -12,6 +12,10 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
+      <div class="curtain on-action">
+        <!-- THIS IS THE GREYED OUT DIV DURING TRANSITIONS -->
+      </div>
+      <!-- <div class="curtain on-action"><h1></h1></div> -->
       <div class="auth-message">
         <div id="auth-message-success" class="alert alert-success shadow-lg" role="alert">
           <!-- MESSAGES & ALERTS -->
@@ -21,31 +25,42 @@
         </div>
       </div>
       <nav class="navbar fixed-top navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Stumblr.</a>
+        <a class="navbar-brand" id="logo" href="#">Stumblr.</a>
         <div id="auth-options">
 <!-- MENU-BUTTON -->
-          <button id="menu-button" class="btn btn-dark after-signin" type="button" data-toggle="modal" data-target="#change-password-modal"><img class="icon-style" src="./assets/images/menu.png" alt="menu button"/></button>
+          <button id="menu-button" class="btn btn-dark after-signin" type="button" data-toggle="modal" data-target="#change-password-modal"><img class="icon-style" src="/public/images/menu.png" alt="menu button"/></button>
 <!-- SIGN-OUT-BUTTON -->
-          <button id="sign-out" class="btn btn-dark after-signin" type="button"><img class="icon-style" src="./assets/images/exit.png" alt="sign out button"/></button>
+          <button id="sign-out" class="btn btn-dark after-signin" type="button"><img class="icon-style" src="/public/images/exit.png" alt="sign out button"/></button>
         </div>
       </nav>
 
       <div class="container">
+
         <div class="row">
+          <!-- JUMBOTRON FOR MY BLOGS PAGE WITH NO CONTENT -->
+          <div class="jumbotron">
+            <h1 class="display-4">Welcome to your Stumblr, <strong><em><span id="jubotron-username"></span></em></strong></h1>
+            <p class="lead">Here is where we would like to display your beautiful blogs. To get started, use the <strong>Create Blog</strong> button below.</p>
+          </div>
           <div class="col-9 content">
 <!-- MAIN CONTENT -->
+
+
 <!-- END MAIN CONTENT  -->
 
 <!-- SIDEBAR -->
           </div>
           <div class="col-3">
+            <div id="profile-image-sidebar"class="side-wrapper">
+              <div class="profile-image-sidebar-frame"><img class="profile-image-sidebar" src="/public/images/default_profile.png"/></div>
+            </div>
+
             <div id="auth-box" class="sidebar shadow">
               <div id="greet-message" class="greet-message"></div>
               <div class="menu-buttons">
                 <button class="btn btn-outline-dark after-signin" type="button" data-toggle="modal" data-target="#create-blog">Create Blog</button>
                 <button id="my-blogs-btn" class="btn btn-outline-dark after-signin">My Blogs</button>
                 <button id="home-btn" class="btn btn-outline-dark">Home</button>
-                <button id="friends-btn" class="btn btn-outline-dark after-signin">Friends</button>
               </div>
 
               <form id="sign-in" class="before-signin">
@@ -191,5 +206,54 @@
         </div>
       </div>
 
+<!-- UPDATE COMMENT MODAL -->
+
+      <div class="modal fade" id="update-comment" tabindex="-1" role="dialog" aria-labelledby="update-blog-label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 id="update-comment-modal-title" class="modal-title">Edit comment</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div id="update-comment-failure" class="alert alert-danger" role="alert">
+              <!-- MESSAGES & ALERTS -->
+            </div>
+            <form id ="update-comment-form">
+              <div class="modal-body-create-comment">
+                <input id="update-comment-text-input" class="title-input" type="text" name="comment[text]">
+              </div>
+              <div class="modal-footer">
+                <button id="update-comment-submit-btn" type="submit" class="btn btn-success btn-block">Update</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+<!-- DELETE COMMENT MODAL -->
+
+      <div class="modal fade" id="delete-comment" tabindex="-1" role="dialog" aria-labelledby="delete-blog-label" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="delete-comment-modal-title">Remove my comment</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div id="delete-comment-failure" class="alert alert-danger" role="alert">
+              <!-- MESSAGES & ALERTS -->
+            </div>
+            <div class="modal-body">
+              Deleting a comment will remove it forever. Are you sure you want to delete?
+            </div>
+            <div class="modal-footer">
+              <button id="delete-comment-submit-btn" type="button" class="btn btn-danger btn-block">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </body>
 </html>
