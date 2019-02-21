@@ -284,7 +284,8 @@ form {
 }
 
 .curtain {
-  position: absolute;
+  position: fixed;
+  top: 0;
   height: 100vh;
   width: 100%;
   background-color: rgba(0 , 0, 0, .8);
@@ -307,5 +308,32 @@ form {
 
   input {
     flex-grow: 1;
+  }
+}
+
+.jumbotron {
+  width: 100%;
+  background-color: rgba(0 , 0, 0, .5);
+  border-radius: 0 40px 40px 40px;
+  color: white;
+}
+
+.side-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  margin: 40px 0;
+
+  .profile-image-sidebar-frame {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    .profile-image-sidebar {
+      background-color: rgba(0 , 0, 0, .8);
+      border-radius: 100%;
+      height: 100px;
+      width: 100px;
+    }
   }
 }

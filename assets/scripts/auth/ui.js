@@ -56,6 +56,8 @@ const onSignOutSuccess = () => {
   $('#sign-up-collapsible').collapse('hide')
   $('#greet-message').text('')
   $('.create-comment-form, .comment-post-edit').attr('hidden', 'true')
+  $('html, body').animate({ scrollTop: 0 }, 2000)
+  $('.jumbotron').hide()
 }
 
 const onSignOutFailure = () => {

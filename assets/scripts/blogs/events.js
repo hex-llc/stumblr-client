@@ -8,15 +8,15 @@ const store = require('../store.js')
 const onGetAllBlogs = function (pageChange) {
   api.getAllBlogs()
     .then(ui.onGetAllBlogsSuccess)
-    // .then(() => {
-    //   if (pageChange === true) {
-    //     $('.on-action').show().html(`<h1> Home Page </h1>`)
-    //     setTimeout(() => { $('.on-action').fadeOut(500) }, 500)
-    //   } else if (pageChange === 'sign out') {
-    //     $('.on-action').show().html(`<h1> 👋 Bye! </h1>`)
-    //     setTimeout(() => { $('.on-action').fadeOut(500) }, 500)
-    //   }
-    // })
+    .then(() => {
+      if (pageChange === 'to home') {
+        $('.on-action').show().html(`<h1> Home Page </h1>`)
+        setTimeout(() => { $('.on-action').fadeOut(500) }, 500)
+      } else if (pageChange === 'sign out') {
+        $('.on-action').show().html(`<h1> 👋 Bye! </h1>`)
+        setTimeout(() => { $('.on-action').fadeOut(500) }, 500)
+      }
+    })
     .catch(ui.onGetAllBlogsError)
 }
 
@@ -38,12 +38,12 @@ const onCreateBlog = function (event) {
 const onGetUserBlogs = function (pageChange) {
   api.getUserBlogs()
     .then(ui.onGetUserBlogsSuccess)
-    // .then(() => {
-    //   if (pageChange) {
-    //     $('.on-action').show().html(`<h1> My Posts </h1>`)
-    //     setTimeout(() => { $('.on-action').fadeOut(500) }, 500)
-    //   }
-    // })
+    .then(() => {
+      if (pageChange === 'to my blogs') {
+        $('.on-action').show().html(`<h1> My Posts </h1>`)
+        setTimeout(() => { $('.on-action').fadeOut(500) }, 500)
+      }
+    })
     .catch(ui.onGetUserBlogsError)
 }
 

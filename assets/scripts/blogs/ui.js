@@ -8,6 +8,8 @@ const onGetAllBlogsSuccess = (responseData) => {
   store.blogs = responseData.blogs
   const allBlogsHtml = allBlogsTemplate({ blogs: store.blogs.reverse() })
   $('.content').html(allBlogsHtml)
+  $('#profile-image-sidebar').hide()
+  $('.jumbotron').hide()
   // $('.container').hide()
   // setTimeout(() => {
   //   $('.content').html(allBlogsHtml)
@@ -30,6 +32,7 @@ const onCreateBlogSuccess = () => {
   $('#auth-message-success').html('<P>Your blog has been <strong>posted!</strong></p>').fadeIn(500)
   setTimeout(() => $('#auth-message-success').fadeOut(500), 2000)
   $('#create-blog').modal('hide')
+  $('.jumbotron').hide()
 }
 
 const onCreateBlogFailure = () => {
@@ -41,6 +44,11 @@ const onGetUserBlogsSuccess = (responseData) => {
   store.user.blogs = responseData.blogs
   const userBlogsHtml = allUserBlogsTemplate({ blogs: store.user.blogs.reverse() })
   $('.content').html(userBlogsHtml)
+  $('#profile-image-sidebar').show()
+  if (store.user.blogs.length === 0) {
+    $('#jubotron-username').text(store.user.username + '!')
+    $('.jumbotron').show()
+  }
   // $('.container').hide()
   // setTimeout(() => {
   //   $('.content').html(userBlogsHtml)
