@@ -46,7 +46,7 @@ const deleteComment = function (commentId) {
     url: config.apiUrl + '/comments/' + commentId,
     method: 'DELETE',
     headers: {
-      Authorization: 'Token token' + store.user.token
+      Authorization: 'Token token=' + store.user.token
     }
   })
 }
