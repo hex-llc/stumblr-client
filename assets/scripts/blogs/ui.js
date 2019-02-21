@@ -18,6 +18,7 @@ const onGetAllBlogsSuccess = (responseData) => {
   // visible
   if (store.user) {
     $('.create-comment-form').removeAttr('hidden')
+    $(`[data-user=${store.user.username}]`).removeAttr('hidden')
   }
 }
 
@@ -51,6 +52,7 @@ const onGetUserBlogsSuccess = (responseData) => {
   // visible
   if (store.user) {
     $('.create-comment-form').removeAttr('hidden')
+    $(`[data-user=${store.user.username}]`).removeAttr('hidden')
   }
 }
 

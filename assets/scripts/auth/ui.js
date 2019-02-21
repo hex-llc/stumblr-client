@@ -23,6 +23,7 @@ const onSignInSuccess = (responseData) => {
   $('#greet-message').html('<p> > Hello, <strong><em>' + store.user.username + '</em></strong></p>')
   $('#modal-title').html(`What would you like to share, <strong><em>${store.user.username}</em></strong>?`)
   $('.create-comment-form').removeAttr('hidden')
+  $(`[data-user=${store.user.username}]`).removeAttr('hidden')
 }
 
 const onSignInFailure = () => {
@@ -54,8 +55,7 @@ const onSignOutSuccess = () => {
   $('.after-signin, #home-btn').fadeOut(500)
   $('#sign-up-collapsible').collapse('hide')
   $('#greet-message').text('')
-  $('.create-comment-form').hide()
-  $('.create-comment-form').attr('hidden', 'true')
+  $('.create-comment-form, .comment-post-edit').attr('hidden', 'true')
 }
 
 const onSignOutFailure = () => {
