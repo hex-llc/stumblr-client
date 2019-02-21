@@ -11,9 +11,9 @@ const commentEvents = require('./comments/events.js')
 const store = require('./store')
 
 // keep elements hidden which are gonna appear after signin
-$('.after-signin, .on-action').hide()
+$('.after-signin, .on-action, .jumbotron').hide()
 $('.alert').hide()
-$('#home-btn').hide()
+$('#home-btn, #profile-image-sidebar').hide()
 
 $(() => {
   // index blogs once DOM object with .content is safe to manipulate
@@ -30,12 +30,12 @@ $(() => {
   $('#blog-form').on('submit', blogEvents.onCreateBlog)
   // fetch user's blogs
   $('#my-blogs-btn').on('click', () => {
-    blogEvents.onGetUserBlogs()
+    blogEvents.onGetUserBlogs('to my blogs')
     store.isInHome = false
   })
   // fetch all blogs
   $('#home-btn').on('click', () => {
-    blogEvents.onGetAllBlogs()
+    blogEvents.onGetAllBlogs('to home')
     $('#my-blogs-btn').show()
     store.isInHome = true
   })
@@ -67,6 +67,8 @@ $(() => {
     // clear forms when modal is hidden
     $(this).find('form').trigger('reset')
   })
+
+  // $('#logo').on('click', () => { blogEvents.onGetAllBlogs('to home') })
 
   $('body').on('click', '.expand-button', (event) => {
     const postID = event.target.dataset.id
