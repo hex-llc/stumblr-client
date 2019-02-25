@@ -25,7 +25,7 @@ $(() => {
   // clicking on 'change password' button will submit info in form and run function 'onChangePw'
   $('#change-pw').on('submit', authEvents.onChangePw)
   // clicking on 'sign out' button will run function 'onSignOut'
-  $('#auth-options').on('click', '#sign-out', authEvents.onSignOut)
+  $('#sign-out').on('click', authEvents.onSignOut)
   // clicking on 'Create Blog' button will submit info in form and run 'onCreateBlog'
   $('#blog-form').on('submit', blogEvents.onCreateBlog)
   // fetch user's blogs

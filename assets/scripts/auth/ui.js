@@ -47,6 +47,7 @@ const onChangePwFailure = () => {
 
 const onSignOutSuccess = () => {
   $('#auth-message-success').text('Signed out!').fadeIn(500)
+  $('#sign-out-modal').modal('hide')
   setTimeout(() => $('#auth-message-success').fadeOut(500), 2000)
   store.user = null
   setTimeout(() => {
