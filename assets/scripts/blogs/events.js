@@ -17,6 +17,17 @@ const onGetAllBlogs = function (pageChange) {
         setTimeout(() => { $('.on-action').fadeOut(500) }, 500)
       }
     })
+    .then(() => {
+      for (let i = 0; i < $('.content').children().length; i++) {
+        const dataId = $('.content').children()[i].dataset.id
+        const height = $(`[data-id=${dataId}]`).find('.blog-post-body').height()
+        // console.log('blog post height is', height)
+        if (height >= 330) {
+          $(`[data-id=${dataId}]`).children('.blog-post-body').addClass('shrink-post')
+          $(`[data-id=${dataId}]`).children()[5].hidden = false
+        }
+      }
+    })
     .catch(ui.onGetAllBlogsError)
 }
 
@@ -42,6 +53,17 @@ const onGetUserBlogs = function (pageChange) {
       if (pageChange === 'to my blogs') {
         $('.on-action').show().html(`<h1> My Posts </h1>`)
         setTimeout(() => { $('.on-action').fadeOut(500) }, 500)
+      }
+    })
+    .then(() => {
+      for (let i = 0; i < $('.content').children().length; i++) {
+        const dataId = $('.content').children()[i].dataset.id
+        const height = $(`[data-id=${dataId}]`).find('.blog-post-body').height()
+        // console.log('blog post height is', height)
+        if (height >= 330) {
+          $(`[data-id=${dataId}]`).children('.blog-post-body').addClass('shrink-post')
+          $(`[data-id=${dataId}]`).children()[4].hidden = false
+        }
       }
     })
     .catch(ui.onGetUserBlogsError)
