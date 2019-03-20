@@ -18,6 +18,35 @@
   }
 }
 
+.auth-column, .profile-image, .auth-box {
+  display: flex;
+  justify-content: center;
+}
+
+.auth-container {
+  display: flex;
+  justify-content: center;
+}
+
+.container-row {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.auth-column {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .blog-post {
+    width: 100%;
+  }
+  .create-comment-form {
+    flex-direction: column;
+  }
+}
+
 body {
   background-attachment: fixed;
   background-image: linear-gradient(to bottom right, purple, orange);
@@ -131,12 +160,13 @@ form {
 }
 
 .blog-container {
-  box-sizing: border-box;
+  // box-sizing: border-box;
   display: flex;
   height: auto;
-  justify-content: stretch;
+  // justify-content: stretch;
+  justify-content: center;
   // max-height: 450px;
-  padding: 40px 10px;
+  padding: 40px 0px;
 
   .blog-profile-pic-frame {
     background-color: #fff;
@@ -314,6 +344,7 @@ form {
 .create-comment-form {
   display: flex;
   flex-direction: row;
+  min-width: auto;
   margin-bottom: 30px;
   width: 100%;
 

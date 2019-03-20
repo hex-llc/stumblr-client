@@ -1,9 +1,9 @@
 {{#each comments as |comment|}}
 <div class="row comment-post">
-  <div class="col-1 comment-post-profile">
+  <div class="col-3 comment-post-profile">
     <img class="blog-commment-profile-pic" src="public/images/default_profile.png"/>
   </div>
-  <div class="col-10 comment-post-content">
+  <div class="col-6 comment-post-content">
     <div class="comment-post-owner">
       <strong><em>@{{comment.owner.username}}</em></strong>
     </div>
@@ -11,7 +11,7 @@
       {{comment.text}}
     </div>
   </div>
-  <div class="col-1 comment-post-edit btn-group" hidden="true" data-user="{{comment.owner.username}}">
+  <div class="col-3 comment-post-edit btn-group" hidden="true" data-user="{{comment.owner.username}}">
     <button type="button" class="btn comment-options-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <img class="icon-style" src="public/images/more.png" alt="comment options"/>
     </button>
